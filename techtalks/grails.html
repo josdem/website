@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>josdem.io : Groovy - Grails</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+  <h1>Grails</h1>
+  <h2>Characteristics</h2>
+  <li>Web Framework</li>
+  <li>Open Source</li>
+  <li>Cross-platform</li>
+  <li>MVC paradigm</li>
+  <h2>Features</h2>
+  <li>Convention-over-Configuration</li>
+  <li>Ready-to-use development environment</li>
+  <li>Functionality available through mixins</li>
+  <li>GSP technology</li>
+  <li>Integrated ORM</li>
+  <br/>
+  <li>DRY (Don't repeat yourself)</li>
+  <li>Fullstack framework</li>
+  <li>Scripting with Gant</li>
+  <li>Tomcat application server embedded</li>
+  <li>Transactional layout</li>
+  <br/>
+  <li>Plugin oriented</li>
+  <li>Wide IDE Support</li>
+  <li>Expressive Domain Specific Language</li>
+  <li>Spring support</li>
+  <li>Highly productive</li>
+  <h2>Creating a simple structure in Grails</h2>
+  <h3>Creating an application</h3>
+  In order to create an application type this command in your command line:
+  <br/><br/>
+  <code>grails create-app project-creator</code>
+  <br/><br/>
+  Output:
+  <br/><br/>
+  <code>Created Grails Application at /home/josdem/Temporal/Grails/project-creator</code>
+  <br/>
+  <p>Grails will create an directory named as the application name, go to that directory and continue creating a domain</p>
+  <h3>Creating a domain</h3>
+  <p>Grails create a relation between domain classes and a table in a database, this is known as ORM (Object-relational Mapping)
+  and Grails uses Hibernate for this.</p>
+  In order to create a domain named Project type this command in your command line:   
+  <br/><br/>
+  <code>grails create-domain-class com.josdem.Project</code>
+  <br/><br/>
+  Output:
+  <br/><br/>  
+  <code>
+  Created file grails-app/domain/com/josdem/Project.groovy
+  <br/>
+  Created file test/unit/com/josdem/ProjectSpec.groovy
+  </code>
+  <br/><br/>
+  Grails validation capability is build on Spring's validator API. However Grails takes this further and provides a unified way to define validation "constraints" with its constraints mechanism.
+  <br/><br/>
+  <code>
+  package com.josdem<br/><br/>
+  class Project {<br/>
+    &nbsp;&nbsp;String name<br/><br/>
+
+    &nbsp;&nbsp;static constraints = {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;name blank:false,size:1..15<br/>
+    &nbsp;&nbsp;}<br/>
+  }<br/> 
+  </code>
+  <br/>
+  In this case we are validating in Project that name can not be blank and its size is between 1 and 15 characters
+  <h3>Scaffolding</h3>
+  <p>Scaffolding lets you generate some basic CRUD interfaces for a domain class, including:
+  <li>The necessary views</li>
+  <li>Controller actions for create/read/update/delete (CRUD) operations</li>
+  <br/>
+  <i>Note:</i> CRUD stands for create, read, update and delete operations
+  <h3>Creating a controller</h3>
+  In order to create a controller named ProjectController type this command in your command line: 
+  <br/><br/>
+  <code>
+  grails
+  </code>
+  <br/><br/>
+  And then:<br/><br/>
+  <code>
+  run-app
+  </code>
+  <br/><br/>
+  Output:
+  <br/><br/>
+  <code>
+  Server running. Browse to http://localhost:8080/project-creator<br/>
+  Application loaded in interactive mode. Type 'stop-app' to shutdown.<br/>
+  Enter a script name to run. Use TAB for completion:<br/>
+  </code>
+</body>
+</html>
