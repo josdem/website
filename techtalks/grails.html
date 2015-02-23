@@ -77,7 +77,7 @@
   <br/>
   <i>Note:</i> CRUD stands for create, read, update and delete operations
   <h3>Creating a controller</h3>
-  In order to create a controller named ProjectController type this command in your command line: 
+  In order to create a controller we need to start grails application, type this:  
   <br/><br/>
   <code>
   grails
@@ -95,5 +95,21 @@
   Application loaded in interactive mode. Type 'stop-app' to shutdown.<br/>
   Enter a script name to run. Use TAB for completion:<br/>
   </code>
-</body>
+  <br/>
+  Now we can create a controller named ProjectController type this command in your command line:
+  <br/><br/>
+  <code>
+  create-scaffold-controller com.josdem.Project
+  </code>
+  <br/><br/>
+  Output:
+  <br/><br/>
+  <code>
+  Created file grails-app/controllers/com/josdem/ProjectController.groovy<br/>
+  Created file grails-app/views/project<br/>
+  Created file test/unit/com/josdem/ProjectControllerSpec.groovy<br/>
+  </code>
+  <br/>
+  Now you can explore your the application and the scaffolding
+  </body>
 </html>
