@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>josdem.io : Groovy and other languages</title>
+  <link rel="icon" type="image/png" href="../jmetadata-16px.png"/>
+
+  <meta name="description" content="Comparision between Groovy and other languages">
+  <meta name="author" content="josdem">
+  <meta name="keywords" content="Groovy,josdem">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+<p>Groovy is very assertive, let's compare the different mechanisms to obtain today's date in varioys languages to demonstrate it</p>
+<br/>
+<code>
+import java.util.*;    //Java<br/>
+Date today = new Date();    //Java<br/><br/>
+
+today = new Date();    //Groovy<br/><br/>
+
+require = 'date'    #Ruby<br/>
+today = Date.new    #Ruby<br/><br/>
+
+import java.util._    //Scala<br/>
+var today = new Date    //Scala<br/><br/>
+
+(import '(java.util.Date)')    :Clojure<br/>
+(def today (new Date))    :Clojure<br/>
+(def today (Date.))    :Clojure<br/>
+alternative    :Clojure<br/>
+</code>
+<br/><br/>
+<p>The Groovy solution is short, precise and more compact than regular Java. Groovy doesn't need to import the <code>java.util</code> package or specify the <code>Date</code> type.</p>
+</body>
+</html>
+
