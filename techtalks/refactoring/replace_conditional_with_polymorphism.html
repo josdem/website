@@ -20,6 +20,22 @@ I will show you the traditional example of employee payment.
 <br/><br/>
 <code>
 <span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> com.josdem.bean.EmployeeType;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class </span> Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> private final </span> BigDecimal <span style="color: #0000C0;">monltySalary</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(100.00);
+<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> private final </span> BigDecimal <span style="color: #0000C0;">bonus</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(20.00);
+<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> private final </span> BigDecimal <span style="color: #0000C0;">commission</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(10.00);
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> public </span> BigDecimal getPaymentAmount(EmployeeType <span style="color: #646464;">type</span>) {
+
+
 </code>
 </body>
 </html>
