@@ -34,8 +34,30 @@ I will show you the traditional example of employee payment.
 &nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> private final </span> BigDecimal <span style="color: #0000C0;">commission</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(10.00);
 <br/><br/>
 &nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> public </span> BigDecimal getPaymentAmount(EmployeeType <span style="color: #646464;">type</span>) {
-
-
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">switch</span>(<span style="color: #646464;">type</span>){
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> case </span> BigDecimal <span style="color: #0000C0;font-weight: bold;">ENGINEER</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> return </span><span style="color: #0000C0;">monltySalary</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> case </span> BigDecimal <span style="color: #0000C0;font-weight: bold;">SALESMAN</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> return </span><span style="color: #0000C0;">monltySalary</span>.add(<span style="color: #0000C0;">commission</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> case </span> BigDecimal <span style="color: #0000C0;font-weight: bold;">MANAGER</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> return </span><span style="color: #0000C0;">monltySalary</span>.add(<span style="color: #0000C0;">bonus</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> default</span>:
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> throw new </span>RuntimeException(<span style="color: #0000C0;">"Incorrect Employee"</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;}
+<br/><br/>
+}
 </code>
 </body>
 </html>
