@@ -69,7 +69,7 @@ The simpliest way to establish this structure is replace type code with subclass
 <br/><br/>
 <span style="color: #7F0055; font-weight: bold;"> public interface </span> Employee {
 <br/><br/>
-&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private final </span> BigDecimal <span style="color: #0000C0;">monltySalary</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(100.00);
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">final </span> BigDecimal <span style="color: #0000C0;">monthlySalary</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(100);
 <br/>
 &nbsp;&nbsp;BigDecimal getPaymentAmount();
 <br/><br/>
@@ -77,6 +77,54 @@ The simpliest way to establish this structure is replace type code with subclass
 </code>
 <br/>
 <p>I highly recommend you to use interfaces in order to establish your inheritance structure, it allows you to decouple your code in an easy way.</p>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class</span> Engineer <span style="color: #7F0055; font-weight: bold;"> implements </span>Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>BigDecimal getPaymentAmount() {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055;font-weight: bold;">return</span><span style="color: #0000C0;font-weight: bold;"> monthlySalary;</span><br/>
+&nbsp;&nbsp;}
+<br/><br/>
+}
+<br/><br/>
+</code>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class</span> Salesman <span style="color: #7F0055; font-weight: bold;"> implements </span>Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private </span> BigDecimal <span style="color: #0000C0;">commission</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(10);
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>BigDecimal getPaymentAmount() {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055;font-weight: bold;">return</span><span style="color: #0000C0;font-weight: bold;"> monthlySalary</span>.add(<span style="color: #0000C0;">commission</span>);
+<br/>
+&nbsp;&nbsp;}
+<br/><br/>
+}
+</code>
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class</span> Manager <span style="color: #7F0055; font-weight: bold;"> implements </span>Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private </span> BigDecimal <span style="color: #0000C0;">bonus</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(20);
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>BigDecimal getPaymentAmount() {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055;font-weight: bold;">return</span><span style="color: #0000C0;font-weight: bold;"> monthlySalary</span>.add(<span style="color: #0000C0;">bonus</span>);
+<br/>
+&nbsp;&nbsp;}
+<br/><br/>
+}
+</code>
+
 <br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
