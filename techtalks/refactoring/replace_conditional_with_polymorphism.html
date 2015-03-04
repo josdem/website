@@ -62,6 +62,22 @@ I will show you the traditional example of employee payment.
 Before you can begin with <i>Replace Conditional With Polymorphism</i> you need to have the necessary inheritance structure.<br/>
 The simpliest way to establish this structure is replace type code with subclasses for each type code.
 <br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public interface </span> Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private final </span> BigDecimal <span style="color: #0000C0;">monltySalary</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(100.00);
+<br/>
+&nbsp;&nbsp;BigDecimal getPaymentAmount();
+<br/><br/>
+}
+</code>
+<br/>
+<p>I highly recommend you to use interfaces in order to establish your inheritance structure, it allows you to decouple your code in an easy way.</p>
+<br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/replace_conditional_with_polymorphism.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
