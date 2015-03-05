@@ -49,7 +49,30 @@ Consider the following snippet of code.
 <br/>
 <p>
 As you can see the code is almost identical in the two tests, altough they test different scenarios, so we applied extract method in order to avoid duplication.<p/>
+<code>
+<span style="color: #646464;">@Test</span><br/>
+<span style="color: #7F0055; font-weight: bold;">public void </span>shouldFullAParkingLot()<span style="color: #7F0055; font-weight: bold;"> throws</span> Exception { <br/>
+&nbsp;&nbsp;fullMyParkingLot();<br/>
+}
+</code>
 <br/><br/>
+<code>
+<span style="color: #646464;">@Test</span>(expected=ParkingLotOverFlowException.<span style="color: #7F0055; font-weight: bold;">class</span>)<br/>
+<span style="color: #7F0055; font-weight: bold;">public void </span>shouldThrowAnExceptionSinceIsFullAndWantToPark<span style="color: #7F0055; font-weight: bold;"> throws</span> Exception { <br/>
+&nbsp;&nbsp;fullMyParkingLot();<br/>
+&nbsp;&nbsp;<span style="color: #0000C0;">parkingLot</span>.park();<br/>
+}
+</code>
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">private void </span>fullMyParkingLot()<span style="color: #7F0055; font-weight: bold;"> throws</span> ParkingLotOverFlowException { <br/>
+&nbsp;&nbsp;<i>assertFalse</i>(<span style="color: #0000C0;">parkingLot</span>.isFull());<br/>
+&nbsp;&nbsp;<span style="color: #7F0055;font-weight: bold;">for</span>(<span style="color: #7F0055; font-weight: bold;">int</span><span style="color: #646464;">i</span>=0;<span style="color: #646464;">i</span><<span style="color: #0000C0;font-weight: bold;">MAX_CAPACITY</span>;<span style="color: #646464;">i</span>++){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000C0;">parkingLot</span>.park();<br/>
+&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;<i>assertTrue</i>(<span style="color: #0000C0;">parkingLot</span>.isFull());<br/>
+}
+</code>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/duplicated_code.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
