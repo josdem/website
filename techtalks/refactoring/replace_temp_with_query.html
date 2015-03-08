@@ -45,11 +45,33 @@ Consider the following class:
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #646464;">basePrice</span> * </span><span style="color: #646464;">discountFactor</span>; <br/>
 <br/>
 }
-
-
 <br/><br/>
-
 </code>
+First I replace the right-hand side of the assignment:
+<br/><br/>
+<code>
+Integer basePrice = <b>getBasePrice()</b>;
+</code>
+<br/><br/>
+Then I replace all references to that temp with the expression.
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> public </span> Double getTotal() {<br/>
+&nbsp;&nbsp;Double = <span style="color: #646464;">discountFactor</span>;
+<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if </span>(<span style="color: #646464;">getBasePrice()</span> > 1000) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #646464;">discountFactor</span> * 0.95;<br/>
+&nbsp;&nbsp;}<span style="color: #7F0055; font-weight: bold;"> else </span>{<br/>
+&nbsp;&nbsp;&nbsp;<span style="color: #646464;">discountFactor</span> * 0.98;<br/>
+&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #646464;">getBasePrice()</span> * </span><span style="color: #646464;">discountFactor</span>; <br/>
+}
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;">private </span>Integer getBasePrice() {<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #0000C0;">quantity</span> * </span><span style="color: #0000C0;">itemPrice</span>; <br/>
+}
+</code>
+<br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/replace_temp_with_query.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
