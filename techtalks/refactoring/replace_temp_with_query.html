@@ -25,6 +25,31 @@
 <p>You are using temporary variable to hold the result of an expression.<br/>
 Extract the expression into a method. Remplace all the references to the temp with the new method. The new method can then be used then  in other methods.<br/><br/>
 The problem with temps is that they are temporary and local. Because they can be seen only in the context of the method in wich they are used, temps tend to encourage longer methods, because that's the only way you can reach the temp. By replacing the temp with query method, any method in the class can get at the information. That helps a lot in coming up with cleaner code for the class.</p>
+Consider the following class:
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class </span> DiscountCalculator {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> public </span> Double getTotal(Integer <span style="color: #646464;">quantity</span>, Integer <span style="color: #646464;">itemPrice</span>) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Integer basePrice = <span style="color: #646464;">quantity</span> * <span style="color: #646464;">itemPrice</span>;
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Double = <span style="color: #646464;">discountFactor</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if </span>(<span style="color: #646464;">basePrice</span> > 1000) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #646464;">discountFactor</span> * 0.95;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<span style="color: #7F0055; font-weight: bold;"> else </span>{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #646464;">discountFactor</span> * 0.98;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #646464;">basePrice</span> * </span><span style="color: #646464;">discountFactor</span>; <br/>
+<br/>
+}
+
+
+<br/><br/>
+
+</code>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/replace_temp_with_query.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
