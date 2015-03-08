@@ -72,6 +72,24 @@ Then I replace all references to that temp with the expression.
 }
 </code>
 <br/><br/>
+With that done I can extract discountFactor in a similar way.
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">private </span>Integer getDiscountFactor() {<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span>(getBasePrice() > 1000) ? 0.95 : 0.98;<br/>
+}
+</code>
+<br/><br/>
+See how it would have been difficult to extract discountFactor if I had not replaced basePrice with a query.<br/>
+The getPrice method ends up as follow.
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">private </span>Double getTotal() {<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span>getBasePrice() * getDiscountFactor();<br/>
+}
+</code>
+
+<br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/replace_temp_with_query.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
