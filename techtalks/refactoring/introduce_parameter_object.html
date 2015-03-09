@@ -37,11 +37,23 @@ Circle makeCircle(Point center, double radius);
 <p>
 Reducing the number of arguments by creating objects out of them may seem like cheating, but it's not. When groups of variables are passed together, the way x and y are in the example above, they are likely part of a concept that deserves a name of its own. 
 </p>
-<br/>
 <h2>Example</h2>
-Consider the following class:<br/>
+Consider the following class:<br/><br/>
 <code>
-
+package com.josdem.refactoring;<br/>
+import java.util.List;<br/><br/>
+public class Account {<br/>
+<br/>
+&nbsp;&nbsp;public Double getTotal(Integer min, Integer max, List<Entry> entries){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Double result = 0.00;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;for (Entry entry : entries) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(entry.getMeassure() >= min && entry.getMeassure() <= max){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += entry.getValue();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;return result;<br/>
+&nbsp;&nbsp;}<br/><br/>
+}
 </code>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
