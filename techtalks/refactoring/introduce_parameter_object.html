@@ -55,7 +55,31 @@ Consider the following class:<br/><br/>
 &nbsp;&nbsp;}<br/><br/>
 }
 </code>
+<br/><br/>
+Applying a simple refactor here, we can group min and max in their own class as follow:
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/><br/>
+<span style="color: #7F0055; font-weight: bold;">public class </span>Range {<br/><br/>
+	
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private final </span>Integer min;<br/>
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private final </span>Integer max;<br/><br/>
 
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Range(Integer min, Integer max) {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">this</span>.min = min;<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">this</span>.max = max;<br/>
+	&nbsp;&nbsp;}<br/><br/>
+	
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Integer getMin() {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span>min;<br/>
+	&nbsp;&nbsp;}<br/><br/>
+	
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Integer getMax() {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span>max;<br/>
+	&nbsp;&nbsp;}<br/><br/>
+	
+}
+</code>
 <br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
