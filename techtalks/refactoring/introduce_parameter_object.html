@@ -45,16 +45,18 @@ Consider the following class:<br/><br/>
 <span style="color: #7F0055; font-weight: bold;">public class </span>Account {<br/>
 <br/>
 &nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Double getTotal(Integer min, Integer max, List<Entry> entries){<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;Double result = 0.00;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">for </span>(Entry entry : entries) {<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if </span>(entry.getMeassure() >= min && entry.getMeassure() <= max){<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += entry.getValue();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Double <span style="color: #646464;">result </span>= 0.00;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">for </span>(Entry <span style="color: #646464;">entry </span>: <span style="color: #646464;">entries</span>) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if </span>(<span style="color: #646464;">entry</span>.getMeassure() >= <span style="color: #646464;">min </span>&& <span style="color: #646464;">entry</span>.getMeassure() <= <span style="color: #646464;">max</span>){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #646464;">result </span>+= <span style="color: #646464;">entry</span>.getValue();<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span>result;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #646464;">result</span>;<br/>
 &nbsp;&nbsp;}<br/><br/>
 }
 </code>
+
+<br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/introduce_parameter_object.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
