@@ -40,18 +40,18 @@ Reducing the number of arguments by creating objects out of them may seem like c
 <h2>Example</h2>
 Consider the following class:<br/><br/>
 <code>
-package com.josdem.refactoring;<br/>
-import java.util.List;<br/><br/>
-public class Account {<br/>
+<span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/>
+<span style="color: #7F0055; font-weight: bold;">import </span>java.util.List;<br/><br/>
+<span style="color: #7F0055; font-weight: bold;">public class </span>Account {<br/>
 <br/>
-&nbsp;&nbsp;public Double getTotal(Integer min, Integer max, List<Entry> entries){<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Double getTotal(Integer min, Integer max, List<Entry> entries){<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;Double result = 0.00;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;for (Entry entry : entries) {<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(entry.getMeassure() >= min && entry.getMeassure() <= max){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">for </span>(Entry entry : entries) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if </span>(entry.getMeassure() >= min && entry.getMeassure() <= max){<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += entry.getValue();<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;return result;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span>result;<br/>
 &nbsp;&nbsp;}<br/><br/>
 }
 </code>
