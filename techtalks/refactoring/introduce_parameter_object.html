@@ -81,6 +81,29 @@ Applying a simple refactor here, we can group min and max in their own class as 
 }
 </code>
 <br/><br/>
+<p>
+I've made the range class immutable; that is, all the values for the range are final and set in the constructor, hence are no methods for mofifying the values. This is a wise move to avoid aliasing bugs.<br/>
+Now applying refactoring, the original class turns to this one:
+</p>
+<br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/>
+<span style="color: #7F0055; font-weight: bold;">import </span>java.util.List;<br/><br/>
+<span style="color: #7F0055; font-weight: bold;">public class </span>Account {<br/>
+<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Double getTotal(Range <span style="color: #646464;">range</span>, List<Entry> entries){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Double <span style="color: #646464;">result </span>= 0.00;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">for </span>(Entry <span style="color: #646464;">entry </span>: <span style="color: #646464;">entries</span>) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if </span>(<span style="color: #646464;">entry</span>.getMeassure() >= <span style="color: #646464;">range</span>.getMin() && <span style="color: #646464;">entry</span>.getMeassure() <= <span style="color: #646464;">range</span>.getMax()){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #646464;">result </span>+= <span style="color: #646464;">entry</span>.getValue();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #646464;">result</span>;<br/>
+&nbsp;&nbsp;}<br/><br/>
+}
+
+</code>
+<br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/introduce_parameter_object.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
