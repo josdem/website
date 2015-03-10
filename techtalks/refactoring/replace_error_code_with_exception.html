@@ -22,10 +22,31 @@
 
 <body>
 <h1>Replace Error Code with Exception</h1>
-<p>A method returns special code to indicate a wrong path. Throw an exception.<br/><br/>
+<p>A method returns special code to indicate a wrong path. Throw an exception instead.<br/><br/>
 
 In computers, as in life, things go wrong occasionally, when things go wrong, you need to do something about it. In the simplest case, you can stop the program with an error code.<br/>
 When a routine finds an error, it needs to let its caller know, and the caller may pass the error up to the chain.</p>
+<h2>Example</h2>
+Let's considere the following class who try to withdraw an amount from user, and return true as success or false as failure at attemp.<br/><br/>
+<code>
+package com.josdem.refactoring;<br/><br/>
+
+import java.math.BigDecimal;<br/><br/>
+
+public class TransactionApplier {<br/><br/>
+
+&nbsp;&nbsp;private AmountValidator amountValidator = new AmountValidator();<br/><br/>
+
+&nbsp;&nbsp;public Boolean subtractAmount(User user, BigDecimal amount) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;if(amountValidator.hasFunds(user, amount)){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user.setBalance(user.getBalance().subtract(amount));<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;return false;<br/>
+&nbsp;&nbsp;}<br/><br/>
+
+}
+</code>
 <br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
