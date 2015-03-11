@@ -47,6 +47,20 @@ Let's consider the following class who try to withdraw an amount from user, and 
 }
 </code>
 <br/><br/>
+<p>TransactionApplier has a collaborator, AmountValidator who knows if user has funds or not. Here the code.</p><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/>
+<span style="color: #7F0055; font-weight: bold;">import </span>java.math.BigDecimal;<br/><br/>
+
+<span style="color: #7F0055; font-weight: bold;">public class </span>AmountValidator {<br/><br/>
+
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Boolean hasFunds(User <span style="color: #646464;">user</span>, BigDecimal <span style="color: #646464;">amount</span>) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #646464;">user</span>.getBalance().compareTo(<span style="color: #646464;">amount</span>) >= 0;<br/>
+&nbsp;&nbsp;}<br/><br/>
+
+}
+</code>
+<br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/replace_error_code_with_exception.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
