@@ -61,6 +61,22 @@ Let's consider the following class who try to withdraw an amount from user, and 
 }
 </code>
 <br/><br/>
+<p>Now refactor, first we change AmountValidator to throw an exception if user has not funds</p><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/>
+<span style="color: #7F0055; font-weight: bold;">import </span>java.math.BigDecimal;<br/><br/>
+
+<span style="color: #7F0055; font-weight: bold;">public class </span>AmountValidator {<br/><br/>
+
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public void </span>hasFunds(User user, BigDecimal amount) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if</span>(user.getBalance().compareTo(amount) < 0){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">throw new </span>BusinessException();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;}<br/><br/>
+
+}
+</code>
+<br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/replace_error_code_with_exception.html" data-via="josdem" data-hashtags="Refactoring">Tweet</a>
