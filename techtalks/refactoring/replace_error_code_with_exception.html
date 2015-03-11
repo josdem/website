@@ -27,21 +27,21 @@
 In computers, as in life, things go wrong occasionally, when things go wrong, you need to do something about it. In the simplest case, you can stop the program with an error code.<br/>
 When a routine finds an error, it needs to let its caller know, and the caller may pass the error up to the chain.</p>
 <h2>Example</h2>
-Let's considere the following class who try to withdraw an amount from user, and return true as success or false as failure at attemp.<br/><br/>
+Let's consider the following class who try to withdraw an amount from user, and return true as success or false as failure at attemp.<br/><br/>
 <code>
 <span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/>
 <span style="color: #7F0055; font-weight: bold;">import </span>java.math.BigDecimal;<br/><br/>
 
-public class TransactionApplier {<br/><br/>
+<span style="color: #7F0055; font-weight: bold;">public class </span>TransactionApplier {<br/><br/>
 
-&nbsp;&nbsp;private AmountValidator amountValidator = new AmountValidator();<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private </span>AmountValidator <span style="color: #0000C0;">amountValidator </span>= new AmountValidator();<br/><br/>
 
-&nbsp;&nbsp;public Boolean subtractAmount(User user, BigDecimal amount) {<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;if(amountValidator.hasFunds(user, amount)){<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user.setBalance(user.getBalance().subtract(amount));<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Boolean subtractAmount(User <span style="color: #646464;">user</span>, BigDecimal <span style="color: #646464;">amount</span>) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;if(<span style="color: #0000C0;">amountValidator</span>.hasFunds(<span style="color: #646464;">user</span>, <span style="color: #646464;">amount</span>)){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #646464;">user</span>.setBalance(<span style="color: #646464;">user</span>.getBalance().subtract(<span style="color: #646464;">amount</span>));<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return true</span>;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;return false;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return false</span>;<br/>
 &nbsp;&nbsp;}<br/><br/>
 
 }
