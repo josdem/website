@@ -21,10 +21,17 @@
 </head>
 
 <body>
-<h1>Replace Error Code with Exception</h1>
-<p>A method returns special code to indicate a wrong path. Throw an exception instead.<br/><br/>
-
-In computers, as in life, things go wrong occasionally, when things go wrong, you need to do something about it. In the simplest case, you can stop the program with an error code.<br/>
+<div itemscope itemtype ="http://schema.org/CreativeWork">
+  <h1 itemprop="name">Replace Error Code with Exception</h1>
+  <p itemprop="description">A method returns special code to indicate a wrong path. Throw an exception instead.</p>
+  <div style="display:none">
+    <span itemprop="dateCreated">2015-03-09</span>
+    <span itemprop="genre">Refactoring</span>
+    <span itemprop="educationalUse">Tech Talks</span>
+    <span itemprop="keywords">Refactoring, josdem, Refactor, replace error code with exception</span>	
+  </div>
+</div>
+<p>In computers, as in life, things go wrong occasionally, when things go wrong, you need to do something about it. In the simplest case, you can stop the program with an error code.<br/>
 When a routine finds an error, it needs to let its caller know, and the caller may pass the error up to the chain.</p>
 <h2>Example</h2>
 Let's consider the following class who try to withdraw an amount from user, and return true as success or false as failure at attemp.<br/><br/>
