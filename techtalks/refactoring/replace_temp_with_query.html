@@ -21,10 +21,18 @@
 </head>
 
 <body>
-<h1>Remplace Temp With Query</h1>
-<p>You are using temporary variable to hold the result of an expression.<br/>
-Extract the expression into a method. Remplace all the references to the temp with the new method. The new method can then be used then  in other methods.<br/><br/>
-The problem with temps is that they are temporary and local. Because they can be seen only in the context of the method in wich they are used, temps tend to encourage longer methods, because that's the only way you can reach the temp. By replacing the temp with query method, any method in the class can get at the information. That helps a lot in coming up with cleaner code for the class.</p>
+<div itemscope itemtype ="http://schema.org/CreativeWork">
+  <h1 itemprop="name">Remplace Temp With Query</h1>
+  <p itemprop="description">You are using temporary variable to hold the result of an expression.<br/>
+Extract the expression into a method. Remplace all the references to the temp with the new method. The new method can then be used then  in other methods.</p>
+  <div style="display:none">
+    <span itemprop="dateCreated">2015-03-07</span>
+    <span itemprop="genre">Refactoring</span>
+    <span itemprop="educationalUse">Tech Talks</span>
+    <span itemprop="keywords">Refactoring, josdem, Refactor, remplace temp with query, temp variables</span>	
+  </div>
+</div>
+<p>The problem with temps is that they are temporary and local. Because they can be seen only in the context of the method in wich they are used, temps tend to encourage longer methods, because that's the only way you can reach the temp. By replacing the temp with query method, any method in the class can get at the information. That helps a lot in coming up with cleaner code for the class.</p>
 Consider the following class:
 <br/><br/>
 <code>
