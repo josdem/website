@@ -21,10 +21,17 @@
 </head>
 
 <body>
-<h1>Introduce Parameter Object</h1>
-<p>You have a group of parameters that naturally go together, replace them with an object.<br/><br/>
-Often you see a particular group of parameters that tend to be passed together. Several methods may use this group, either on one class or in several classes. Such a group of classes is a data clump and can be replaced with an object that carries all of this data. This refactoring is useful because it reduces the size of parameter list, and long parameter lists are hard to understand.
-</p>
+<div itemscope itemtype ="http://schema.org/CreativeWork">
+  <h1 itemprop="name">Introduce Parameter Object</h1>
+  <p itemprop="description">You have a group of parameters that naturally go together, replace them with an object.</p>
+  <div style="display:none">
+    <span itemprop="dateCreated">2015-03-09</span>
+    <span itemprop="genre">Refactoring</span>
+    <span itemprop="educationalUse">Tech Talks</span>
+    <span itemprop="keywords">Refactoring, josdem, Refactor, introduce parameter object, object as parameter, too many parameters</span>	
+  </div>
+</div>
+<p>Often you see a particular group of parameters that tend to be passed together. Several methods may use this group, either on one class or in several classes. Such a group of classes is a data clump and can be replaced with an object that carries all of this data. This refactoring is useful because it reduces the size of parameter list, and long parameter lists are hard to understand.</p>
 <h2> Argument as Objects </h2>
 <p>
 When a function seems to need more than two or three arguments, it is likely that some of those arguments ought to be wrapped in to a class of their own. Consider, for example, the difference between the two following declarations:
