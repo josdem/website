@@ -36,6 +36,33 @@
 <h2>To the developers</h2>
 <ul>
 <li>Is my intention that you can take advantage from this code using it as a example resource.</li>
-<ul/>
+<li>I'll be honored if you would like to extend this code or do some advice.</li>
+<li>Jmetadata is still work in progress so, there are some issues that I'm working on.</li>
+<li>I was trying to reduce the number of bugs using JUnit and Integration test, but certainly there are some bugs detected, those are in the issues section, but feel free to add a new one.</li>
+</ul>
+<h2>Details</h2>
+In order to set up you environment I recommend you
+<ul>
+<li>Eclipse
+  <ul>
+    <li>Maven plugin</li>
+    <li>EMMA plugin</li>
+    <li>GIT plugin</li>
+  </ul>
+</li>
+<li>Install Musicbrainz and LastFM third party jar's manually in your .m2 repository</li>
+</ul>
+<code>
+mvn install:install-file -Dfile="path-to-file" -DgroupId=de.umass.lastfm -DartifactId=lastfm_bindings -Dversion=0.1.0 -Dpackaging=jar<br/>
+mvn install:install-file -Dfile="path-to-file" -DgroupId=com.skychief.javamusicbrainz -DartifactId=javamusicbrainz -Dversion=1.0 -Dpackaging=jar
+</code>
+<br/><br/>
+Note: You should find the third party Jars in /lib folder in Jmetadata source code.
+<br/>
+<h2>Create Installers</h2>
+<ul>
+<li><a href="http://maven.apache.org/download.html">Maven</a> in your system environment path is required</li>
+<li>From your command line: mvn -Dmaven.test.skip clean assembly:assembly</li>
+</ul>
 </body>
 </html>
