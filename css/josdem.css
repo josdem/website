@@ -1,0 +1,11 @@
+body {
+  font-size: 16px;
+}
+.footer_ul {
+  list-style-type: none;
+  padding: 0px;
+}
+.footer_li {
+  display: inline;
+  padding-right: 30px;
+}
