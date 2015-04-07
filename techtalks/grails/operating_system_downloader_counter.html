@@ -44,7 +44,7 @@
       </div>
   </div>
 
-  <p>As first step, I'm going to create an project as follow:</p>
+  <p>As first step, I'm going to create a project as follow:</p>
   <code>
     grails create-app operating-system-downloader-stat
   </code>
@@ -78,14 +78,16 @@
   <span style="color: #FCE94F;">11 </span><br/>
   <span style="color: #FCE94F;">12 </span>
   <span style="color: #ffffff;">}</span><br/>
-
-
-
-
-
   </code>
   </div>
-  <br/><br/>
+  <h3>About Domain</h3>
+  <ul>
+    <li>Grails will create an "downloader" table</li>
+    <li>If you define an property "dateCreated" it will set current date at creating new instances</li>
+    <li>Grails will validate "address" is not empty and a size between 5 and 255</li>
+    <li>InstallerType is an enum and I need to define it in grails-app/src/groovy/ folder</li>
+ </ul>
+
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/grails.html" data-via="josdem" data-size="large" data-hashtags="Grails">Tweet</a>
