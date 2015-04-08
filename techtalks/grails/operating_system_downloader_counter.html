@@ -62,6 +62,8 @@
       </div>
   </div>
 
+  <h2>Project user story</h2>
+  <p>As application owner I want to deliver my application by package so the client can download it, in addition I need to know how many downloads I have by package which are Linux, Ubuntu, Mac and Windows, finally I need to know what is the client IP address</p>
   <p>As first step, I'm going to create a project as follow:</p>
   <code>
     grails create-app operating-system-downloader-stat
@@ -214,6 +216,12 @@
     <span style="color: #ffffff;">}</span><br/>
    </code>
  </div>
+ <h3>DownloaderServiceSpec facts</h3>
+ <ul>
+   <li>When we call service.createUbuntuStat("127.0.0.1") we are expecting that service returns an downloader object</li>
+   <li>Then we verify that object contains "127.0.0.1" as address and UBUNTU as InstallerType</li>
+ </ul>
+ <p>That's it, the first part of the story is complete, we know what is the client IP address and when an Ubuntu package is downloaded. Next step is to deliver my Ubuntu package as downloader file, let's return to our DownloaderControllerSpec</p>
 
  <br/><br/>
 <footer>
