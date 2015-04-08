@@ -53,6 +53,12 @@
     width:850px;
     height:420px;
   }
+  #downloaderController {
+    background-color:#411934;
+    padding:5px;
+    width:900px;
+    height:430px;
+  }
   </style>
 </head>
 
@@ -279,7 +285,33 @@
    <li>We are expecting that Content-disposition is an attachment named JMetadata.deb</li>
  </ul>
  <p>Now is time to see the DownloadController and DownloadService implementations</p>
-
+ <h3>DownloaderController</h3>
+ <div id="downloaderController">
+  <code>
+    &nbsp;<span style="color: #FCE94F;">1 </span>
+    <span style="color: #729FCF; font-weight: bold;">package </span><span style="color: #ffffff;">com.tim</span><br/>
+    &nbsp;<span style="color: #FCE94F;">2 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">3 </span>
+    <span style="color: #8AE234; font-weight: bold;">class </span><span style="color: #ffffff;">DownloaderController {</span><br/>
+    &nbsp;<span style="color: #FCE94F;">4 </span>
+    &nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">DownloaderService downloaderService</span><br/>
+    &nbsp;<span style="color: #FCE94F;">5 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">6 </span>
+    &nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">downloadUbuntuVersion(){</span><br/>
+    &nbsp;<span style="color: #FCE94F;">7 </span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">downloaderService.createUbuntuStat(request.getRemoteAddr())</span><br/>
+    &nbsp;<span style="color: #FCE94F;">8 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">9 </span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">file = </span><span style="color: #FCE94F;">new </span><span style="color: #ffffff;">File(</span><span style="color: #AD7FA8;">"/home/josdem/.jmetadata/JMetadata.deb"</span><span style="color: #ffffff;">)</span><br/>
+    <span style="color: #FCE94F;">10</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">response.setContentType(<span style="color: #AD7FA8;">"application/octet-stream"</span><span style="color: #ffffff;">)</span><br/>
+    <span style="color: #FCE94F;">11</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">response.setHeader(</span><span style="color: #AD7FA8;">"Content-disposition"</span><span style="color: #ffffff;">,</span><span style="color: #AD7FA8;">"attachment;filename=${file.getName()}"</span><span style="color: #ffffff;">)</span><br/>
+<span style="color: #FCE94F;">11 </span><br/>
+  <span style="color: #FCE94F;">12 </span>
+  <span style="color: #ffffff;">}</span><br/>
+  </code>
+  </div>
 
 
  <br/><br/>
