@@ -39,7 +39,7 @@
     background-color:#411934;
     padding:5px;
     width:700px;
-    height:300px;
+    height:385px;
   }
   </style>
 </head>
@@ -143,7 +143,28 @@
     <span style="color: #8AE234; font-weight: bold;">class </span><span style="color: #ffffff;">DownloaderControllerSpec </span><span style="color: #8AE234; font-weight: bold;">extends </span><span style="color: #ffffff;">Specification {</span><br/>
     &nbsp;<span style="color: #FCE94F;">8 </span>
     &nbsp;&nbsp;<span style="color: #ffffff;">DownloaderService downloaderService = Mock(DownloaderService)</span><br/>
-
+    &nbsp;<span style="color: #FCE94F;">9 </span><br/>
+    <span style="color: #FCE94F;">10 </span>
+    &nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">setup(){ </span><br/>
+    <span style="color: #FCE94F;">11</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloaderService = downloaderService</span><br/>
+    <span style="color: #FCE94F;">12</span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    <span style="color: #FCE94F;">13</span><br/>
+    <span style="color: #FCE94F;">14</span>
+    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">void </span></span><span style="color: #AD7FA8;">"should count ubuntu download"</span><span style="color: #ffffff;">() { </span><br/>
+    <span style="color: #FCE94F;">15</span>
+    &nbsp;<span style="color: #FCE94F;"> when:</span><br/>
+    <span style="color: #FCE94F;">16</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloadUbuntuVersion()</span><br/>
+    <span style="color: #FCE94F;">17</span>
+    &nbsp;<span style="color: #FCE94F;"> then:</span><br/>
+    <span style="color: #FCE94F;">18</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;"><span style="color: #AD7FA8;">1 </span>* downloaderService.createUbuntuStat()</span><br/>
+    <span style="color: #FCE94F;">19</span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    <span style="color: #FCE94F;">20</span>
+    <span style="color: #ffffff;">}</span><br/>
    </code>
  </div>
 
