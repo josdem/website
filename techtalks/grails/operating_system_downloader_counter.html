@@ -35,6 +35,12 @@
     width:600px;
     height:100px;
   }
+  #downloaderControllerSpec {
+    background-color:#411934;
+    padding:5px;
+    width:700px;
+    height:300px;
+  }
   </style>
 </head>
 
@@ -119,6 +125,28 @@
  <code>grails</code>
  <p>And then:</p>
  <code>create-service com.tim.DownloaderService</code>
+ <h3>Unit testing</h3>
+ <p>Now we are ready to write unit test and let the test guide us to the solution, we are going to start with DownloaderControllerSpec.groovy which is located in test/unit/com/tim</p>
+ <div id="downloaderControllerSpec">
+   <code>
+     &nbsp;<span style="color: #FCE94F;">1 </span>
+    <span style="color: #729FCF; font-weight: bold;">package </span><span style="color: #ffffff;">com.tim</span><br/>
+    &nbsp;<span style="color: #FCE94F;">2 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">3 </span>
+    <span style="color: #729FCF; font-weight: bold;">import </span><span style="color: #ffffff;">grails.test.mixin.TestFor</span><br/>
+    &nbsp;<span style="color: #FCE94F;">4 </span>
+    <span style="color: #729FCF; font-weight: bold;">import </span><span style="color: #ffffff;">spock.lang.Specification</span><br/>
+    &nbsp;<span style="color: #FCE94F;">5 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">6 </span>
+    <span style="color: #ffffff;">@TestFor(DownloaderController)</span><br/>
+    &nbsp;<span style="color: #FCE94F;">7 </span>
+    <span style="color: #8AE234; font-weight: bold;">class </span><span style="color: #ffffff;">DownloaderControllerSpec </span><span style="color: #8AE234; font-weight: bold;">extends </span><span style="color: #ffffff;">Specification {</span><br/>
+    &nbsp;<span style="color: #FCE94F;">8 </span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">DownloaderService downloaderService = Mock(DownloaderService)</span><br/>
+
+   </code>
+ </div>
+
  <br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
