@@ -41,6 +41,12 @@
     width:700px;
     height:385px;
   }
+  #downloaderServiceSpec {
+    background-color:#411934;
+    padding:5px;
+    width:700px;
+    height:310px;
+  }
   </style>
 </head>
 
@@ -164,6 +170,47 @@
     <span style="color: #FCE94F;">19</span>
     &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
     <span style="color: #FCE94F;">20</span>
+    <span style="color: #ffffff;">}</span><br/>
+   </code>
+ </div>
+ <h3>DownloaderControllerSpec facts</h3>
+ <ul>
+   <li>DownloaderService is a mock, needs to be that way since we are trying to test DownloaderController</li>
+   <li>The purpose "def setup()" method is execute code before any test is called</li>
+   <li>We assigned downloaderService to the controller in line 11</li>
+   <li>When we call controller.downloadUbuntuVersion() we expect to call downloaderService.createUbuntuStat() once</li>
+ </ul>
+ <p>Now is time to set business logic which is create a record any time someone download an ubuntu version, so let's our DownloaderServiceSpec lead us to the light</p>
+ <div id="downloaderServiceSpec">
+   <code>
+     &nbsp;<span style="color: #FCE94F;">1 </span>
+    <span style="color: #729FCF; font-weight: bold;">package </span><span style="color: #ffffff;">com.tim</span><br/>
+    &nbsp;<span style="color: #FCE94F;">2 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">3 </span>
+    <span style="color: #729FCF; font-weight: bold;">import </span><span style="color: #ffffff;">grails.test.mixin.TestFor</span><br/>
+    &nbsp;<span style="color: #FCE94F;">4 </span>
+    <span style="color: #729FCF; font-weight: bold;">import </span><span style="color: #ffffff;">spock.lang.Specification</span><br/>
+    &nbsp;<span style="color: #FCE94F;">5 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">6 </span>
+    <span style="color: #ffffff;">@TestFor(DownloaderService)</span><br/>
+    &nbsp;<span style="color: #FCE94F;">7 </span>
+    <span style="color: #8AE234; font-weight: bold;">class </span><span style="color: #ffffff;">DownloaderControllerSpec </span><span style="color: #8AE234; font-weight: bold;">extends </span><span style="color: #ffffff;">Specification {</span><br/>
+    &nbsp;<span style="color: #FCE94F;">8 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">9</span>
+    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">void </span></span><span style="color: #AD7FA8;">"should create a ubuntu download stat"</span><span style="color: #ffffff;">() { </span><br/>
+    <span style="color: #FCE94F;">10</span>
+    &nbsp;<span style="color: #FCE94F;"> when:</span><br/>
+    <span style="color: #FCE94F;">11</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;"><span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">downloader = service.createUbuntuStat(<span style="color: #AD7FA8;">"127.0.0.1"</span><span style="color: #ffffff;">)</span><br/>
+    <span style="color: #FCE94F;">12</span>
+    &nbsp;<span style="color: #FCE94F;"> then:</span><br/>
+    <span style="color: #FCE94F;">13</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">downloader.address == </span><span style="color: #AD7FA8;">"127.0.0.1" </span><br/>
+    <span style="color: #FCE94F;">14</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">downloader.type == InstallerType.UBUNTU</span><br/>
+    <span style="color: #FCE94F;">15</span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    <span style="color: #FCE94F;">16</span>
     <span style="color: #ffffff;">}</span><br/>
    </code>
  </div>
