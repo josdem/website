@@ -47,6 +47,12 @@
     width:700px;
     height:310px;
   }
+  #downloaderControllerSpecModified {
+    background-color:#411934;
+    padding:5px;
+    width:850px;
+    height:420px;
+  }
   </style>
 </head>
 
@@ -222,6 +228,59 @@
    <li>Then we verify that object contains "127.0.0.1" as address and UBUNTU as InstallerType</li>
  </ul>
  <p>That's it, the first part of the story is complete, we know what is the client IP address and when an Ubuntu package is downloaded. Next step is to deliver my Ubuntu package as downloader file, let's return to our DownloaderControllerSpec</p>
+ <div id="downloaderControllerSpecModified">
+   <code>
+     &nbsp;<span style="color: #FCE94F;">1 </span>
+    <span style="color: #729FCF; font-weight: bold;">package </span><span style="color: #ffffff;">com.tim</span><br/>
+    &nbsp;<span style="color: #FCE94F;">2 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">3 </span>
+    <span style="color: #729FCF; font-weight: bold;">import </span><span style="color: #ffffff;">grails.test.mixin.TestFor</span><br/>
+    &nbsp;<span style="color: #FCE94F;">4 </span>
+    <span style="color: #729FCF; font-weight: bold;">import </span><span style="color: #ffffff;">spock.lang.Specification</span><br/>
+    &nbsp;<span style="color: #FCE94F;">5 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">6 </span>
+    <span style="color: #ffffff;">@TestFor(DownloaderController)</span><br/>
+    &nbsp;<span style="color: #FCE94F;">7 </span>
+    <span style="color: #8AE234; font-weight: bold;">class </span><span style="color: #ffffff;">DownloaderControllerSpec </span><span style="color: #8AE234; font-weight: bold;">extends </span><span style="color: #ffffff;">Specification {</span><br/>
+    &nbsp;<span style="color: #FCE94F;">8 </span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">DownloaderService downloaderService = Mock(DownloaderService)</span><br/>
+    &nbsp;<span style="color: #FCE94F;">9 </span><br/>
+    <span style="color: #FCE94F;">10 </span>
+    &nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">setup(){ </span><br/>
+    <span style="color: #FCE94F;">11</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloaderService = downloaderService</span><br/>
+    <span style="color: #FCE94F;">12</span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    <span style="color: #FCE94F;">13</span><br/>
+    <span style="color: #FCE94F;">14</span>
+    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">void </span></span><span style="color: #AD7FA8;">"should count ubuntu download"</span><span style="color: #ffffff;">() { </span><br/>
+    <span style="color: #FCE94F;">15</span>
+    &nbsp;<span style="color: #FCE94F;"> when:</span><br/>
+    <span style="color: #FCE94F;">16</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloadUbuntuVersion()</span><br/>
+    <span style="color: #FCE94F;">17</span>
+    &nbsp;<span style="color: #FCE94F;"> then:</span><br/>
+    <span style="color: #FCE94F;">18</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;"><span style="color: #AD7FA8;">1 </span>* downloaderService.createUbuntuStat()</span><br/>
+    <span style="color: #FCE94F;">19</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">response.contentType == </span><span style="color: #AD7FA8;">"application/octet-stream"</span><br/>
+    <span style="color: #FCE94F;">19</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">response.getHeader(</span><span style="color: #AD7FA8;">"Content-disposition"</span><span style="color: #ffffff;">) ==</span><span style="color: #AD7FA8;">"attachment;filename=JMetadata.deb"</span><br/>
+<span style="color: #FCE94F;">19</span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    <span style="color: #FCE94F;">20</span>
+    <span style="color: #ffffff;">}</span><br/>
+   </code>
+ </div>
+ <h3>DownloaderServiceSpec modifications</h3>
+ <ul>
+   <li>Now we are expecting that ContentType is application/octet-stream</li>
+   <li>The intended purpose is to be saved to disk as "arbitrary binary data"</li>
+   <li>We are expecting that Content-disposition is an attachment named JMetadata.deb</li>
+ </ul>
+ <p>Now is time to see the DownloadController and DownloadService implementations</p>
+
+
 
  <br/><br/>
 <footer>
