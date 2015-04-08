@@ -29,6 +29,12 @@
     width:600px;
     height:230px;
   }
+  #enum {
+    background-color:#411934;
+    padding:5px;
+    width:600px;
+    height:100px;
+  }
   </style>
 </head>
 
@@ -85,9 +91,25 @@
     <li>Grails will create an "downloader" table</li>
     <li>If you define an property "dateCreated" it will set current date at creating new instances</li>
     <li>Grails will validate "address" is not empty and a size between 5 and 255</li>
-    <li>InstallerType is an enum and I need to define it in grails-app/src/groovy/ folder</li>
+    <li>InstallerType is an enum and I need to define it in src/groovy/ folder</li>
  </ul>
-
+ <h3>Creating enum</h3>
+ <p>Create path src/groovy/com/tim<br/>
+ Create InstallerType enum as follow:</p>
+ <div id="enum">
+   <code>
+     &nbsp;<span style="color: #FCE94F;">1 </span>
+    <span style="color: #729FCF; font-weight: bold;">package </span><span style="color: #ffffff;">com.tim</span><br/>
+    &nbsp;<span style="color: #FCE94F;">2 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">3 </span>
+    <span style="color: #8AE234; font-weight: bold;">enum </span><span style="color: #ffffff;">InstallerType {</span><br/>
+    &nbsp;<span style="color: #FCE94F;">4 </span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">LINUX, MAC, UBUNTU, WINDOWS</span><br/>
+    &nbsp;<span style="color: #FCE94F;">5 </span>
+    <span style="color: #ffffff;">}</span>
+   </code>
+ </div>
+ <br/><br/>
 <footer>
 <!-- TWITTER SHARE BUTTON -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/grails.html" data-via="josdem" data-size="large" data-hashtags="Grails">Tweet</a>
