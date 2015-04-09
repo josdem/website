@@ -30,7 +30,13 @@
   <loc>http://josdem.io/techtalks/grails.html</loc>
   <lastmod>2015-03-13T16:18:56+00:00</lastmod>
   <changefreq>daily</changefreq>
+  </url>
+<url>
+  <loc>http://josdem.io/techtalks/grails/operating_system_downloader_counter.html</loc>
+  <lastmod>2015-04-08T16:18:56+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
+
 <url>
   <loc>http://josdem.io/techtalks/refactoring.html</loc>
   <lastmod>2015-03-13T16:18:56+00:00</lastmod>
