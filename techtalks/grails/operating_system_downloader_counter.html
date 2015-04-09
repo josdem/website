@@ -56,8 +56,14 @@
   #downloaderController {
     background-color:#411934;
     padding:5px;
-    width:900px;
-    height:430px;
+    width:870px;
+    height:270px;
+  }
+  #downloaderService {
+    background-color:#411934;
+    padding:5px;
+    width:870px;
+    height:270px;
   }
   </style>
 </head>
@@ -312,6 +318,35 @@
   <span style="color: #FCE94F;">11 </span>
   &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
   <span style="color: #FCE94F;">12 </span>
+  <span style="color: #ffffff;">}</span><br/>
+  </code>
+  </div>
+  <h3>DownloaderService</h3>
+  <div id="downloaderService">
+  <code>
+    &nbsp;<span style="color: #FCE94F;">1 </span>
+    <span style="color: #729FCF; font-weight: bold;">package </span><span style="color: #ffffff;">com.tim</span><br/>
+    &nbsp;<span style="color: #FCE94F;">2 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">3 </span>
+    <span style="color: #729FCF; font-weight: bold;">import </span><span style="color: #ffffff;">grails.transaction.Transactional</span><br/>    &nbsp;<span style="color: #FCE94F;">4 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">5 </span>
+    <span style="color: #ffffff;">@Transactional</span><br/>
+    &nbsp;<span style="color: #FCE94F;">6 </span>
+    <span style="color: #8AE234; font-weight: bold;">class </span><span style="color: #ffffff;">DownloaderService {</span><br/>
+    &nbsp;<span style="color: #FCE94F;">7 </span><br/>
+    &nbsp;<span style="color: #FCE94F;">8 </span>
+    &nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">Downloader createUbuntuStat(</span><span style="color: #8AE234; font-weight: bold;">String </span><span style="color: #ffffff;">address){</span><br/>
+    &nbsp;<span style="color: #FCE94F;">9 </span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">downloader = </span><span style="color: #FCE94F; font-weight: bold;">new </span><span style="color: #ffffff;">Downloader()</span><br/>
+    <span style="color: #FCE94F;">10</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">downloader.address = address</span><br/>
+    <span style="color: #FCE94F;">11</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">downloader.type = InstallerType.UBUNTU</span><br/>
+    <span style="color: #FCE94F;">12</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">downloader.save()</span><br/>
+    <span style="color: #FCE94F;">13</span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+  <span style="color: #FCE94F;">14 </span>
   <span style="color: #ffffff;">}</span><br/>
   </code>
   </div>
