@@ -39,7 +39,7 @@
     background-color:#411934;
     padding:5px;
     width:700px;
-    height:385px;
+    height:400px;
   }
   #downloaderServiceSpec {
     background-color:#411934;
@@ -51,7 +51,7 @@
     background-color:#411934;
     padding:5px;
     width:850px;
-    height:420px;
+    height:440px;
   }
   #downloaderController {
     background-color:#411934;
@@ -169,27 +169,29 @@
     <span style="color: #8AE234; font-weight: bold;">class </span><span style="color: #ffffff;">DownloaderControllerSpec </span><span style="color: #8AE234; font-weight: bold;">extends </span><span style="color: #ffffff;">Specification {</span><br/>
     &nbsp;<span style="color: #FCE94F;">8 </span>
     &nbsp;&nbsp;<span style="color: #ffffff;">DownloaderService downloaderService = Mock(DownloaderService)</span><br/>
-    &nbsp;<span style="color: #FCE94F;">9 </span><br/>
-    <span style="color: #FCE94F;">10 </span>
+    &nbsp;<span style="color: #FCE94F;">9 </span>
+    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">String </span><span style="color: #ffffff;">address = </span><span style="color: #AD7FA8;">"127.0.0.1"</span><br/>
+    <span style="color: #FCE94F;">10 </span><br/>
+    <span style="color: #FCE94F;">11 </span>
     &nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">setup(){ </span><br/>
-    <span style="color: #FCE94F;">11</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloaderService = downloaderService</span><br/>
     <span style="color: #FCE94F;">12</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloaderService = downloaderService</span><br/>
+    <span style="color: #FCE94F;">13</span>
     &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
-    <span style="color: #FCE94F;">13</span><br/>
-    <span style="color: #FCE94F;">14</span>
-    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">void </span></span><span style="color: #AD7FA8;">"should count ubuntu download"</span><span style="color: #ffffff;">() { </span><br/>
+    <span style="color: #FCE94F;">14</span><br/>
     <span style="color: #FCE94F;">15</span>
-    &nbsp;<span style="color: #FCE94F;"> when:</span><br/>
+    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">void </span></span><span style="color: #AD7FA8;">"should count ubuntu download"</span><span style="color: #ffffff;">() { </span><br/>
     <span style="color: #FCE94F;">16</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloadUbuntuVersion()</span><br/>
+    &nbsp;<span style="color: #FCE94F;"> when:</span><br/>
     <span style="color: #FCE94F;">17</span>
-    &nbsp;<span style="color: #FCE94F;"> then:</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloadUbuntuVersion()</span><br/>
     <span style="color: #FCE94F;">18</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;"><span style="color: #AD7FA8;">1 </span>* downloaderService.createUbuntuStat()</span><br/>
+    &nbsp;<span style="color: #FCE94F;"> then:</span><br/>
     <span style="color: #FCE94F;">19</span>
-    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;"><span style="color: #AD7FA8;">1 </span>* downloaderService.createUbuntuStat(address)</span><br/>
     <span style="color: #FCE94F;">20</span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    <span style="color: #FCE94F;">21</span>
     <span style="color: #ffffff;">}</span><br/>
    </code>
  </div>
@@ -200,6 +202,8 @@
    <li>We assigned downloaderService to the controller in line 11</li>
    <li>When we call controller.downloadUbuntuVersion() we expect to call downloaderService.createUbuntuStat() once</li>
  </ul>
+ <p>You can run unit tests by typing in your command line:</p>
+ <code>grails test-app :unit</code>
  <p>Now is time to set business logic which is create a record any time someone download an ubuntu version, so let's our DownloaderServiceSpec lead us to the light</p>
  <div id="downloaderServiceSpec">
    <code>
@@ -256,31 +260,33 @@
     <span style="color: #8AE234; font-weight: bold;">class </span><span style="color: #ffffff;">DownloaderControllerSpec </span><span style="color: #8AE234; font-weight: bold;">extends </span><span style="color: #ffffff;">Specification {</span><br/>
     &nbsp;<span style="color: #FCE94F;">8 </span>
     &nbsp;&nbsp;<span style="color: #ffffff;">DownloaderService downloaderService = Mock(DownloaderService)</span><br/>
-    &nbsp;<span style="color: #FCE94F;">9 </span><br/>
-    <span style="color: #FCE94F;">10 </span>
+    &nbsp;<span style="color: #FCE94F;">9 </span>
+    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">String </span><span style="color: #ffffff;">address = </span><span style="color: #AD7FA8;">"127.0.0.1"</span><br/>
+    <span style="color: #FCE94F;">10 </span><br/>
+    <span style="color: #FCE94F;">11 </span>
     &nbsp;&nbsp;<span style="color: #EF2929; font-weight: bold;">def </span><span style="color: #ffffff;">setup(){ </span><br/>
-    <span style="color: #FCE94F;">11</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloaderService = downloaderService</span><br/>
     <span style="color: #FCE94F;">12</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloaderService = downloaderService</span><br/>
+    <span style="color: #FCE94F;">13</span>
     &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
-    <span style="color: #FCE94F;">13</span><br/>
-    <span style="color: #FCE94F;">14</span>
-    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">void </span></span><span style="color: #AD7FA8;">"should count ubuntu download"</span><span style="color: #ffffff;">() { </span><br/>
+    <span style="color: #FCE94F;">14</span><br/>
     <span style="color: #FCE94F;">15</span>
-    &nbsp;<span style="color: #FCE94F;"> when:</span><br/>
+    &nbsp;&nbsp;<span style="color: #8AE234; font-weight: bold;">void </span></span><span style="color: #AD7FA8;">"should count ubuntu download"</span><span style="color: #ffffff;">() { </span><br/>
     <span style="color: #FCE94F;">16</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloadUbuntuVersion()</span><br/>
+    &nbsp;<span style="color: #FCE94F;"> when:</span><br/>
     <span style="color: #FCE94F;">17</span>
-    &nbsp;<span style="color: #FCE94F;"> then:</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">controller.downloadUbuntuVersion()</span><br/>
     <span style="color: #FCE94F;">18</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;"><span style="color: #AD7FA8;">1 </span>* downloaderService.createUbuntuStat()</span><br/>
+    &nbsp;<span style="color: #FCE94F;"> then:</span><br/>
     <span style="color: #FCE94F;">19</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">response.contentType == </span><span style="color: #AD7FA8;">"application/octet-stream"</span><br/>
-    <span style="color: #FCE94F;">19</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">response.getHeader(</span><span style="color: #AD7FA8;">"Content-disposition"</span><span style="color: #ffffff;">) ==</span><span style="color: #AD7FA8;">"attachment;filename=JMetadata.deb"</span><br/>
-<span style="color: #FCE94F;">19</span>
-    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;"><span style="color: #AD7FA8;">1 </span>* downloaderService.createUbuntuStat(address)</span><br/>
     <span style="color: #FCE94F;">20</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">response.contentType == </span><span style="color: #AD7FA8;">"application/octet-stream"</span><br/>
+    <span style="color: #FCE94F;">21</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ffffff;">response.getHeader(</span><span style="color: #AD7FA8;">"Content-disposition"</span><span style="color: #ffffff;">) ==</span><span style="color: #AD7FA8;">"attachment;filename=JMetadata.deb"</span><br/>
+<span style="color: #FCE94F;">22</span>
+    &nbsp;&nbsp;<span style="color: #ffffff;">}</span><br/>
+    <span style="color: #FCE94F;">23</span>
     <span style="color: #ffffff;">}</span><br/>
    </code>
  </div>
