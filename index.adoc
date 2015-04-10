@@ -1,0 +1,2 @@
+= About Me
+Passionate for development, CI, Servers, tools and Music
