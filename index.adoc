@@ -17,3 +17,9 @@ image:mixcloud-32px.png[alt="Mixcloud", link="https://www.mixcloud.com/josdem" a
 * Groovy: link:techtalks/groovy.html[Groovy]
 * Grails: link:techtalks/grails.html[Grails]
 * Refactoring: link:techtalks/refactoring.html[Refactoring]
+
+== Music
+
+* DJing: link:music/myremixes.html[My Remixes]
+
+_In order to be free, thinking as a free man._
