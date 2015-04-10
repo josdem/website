@@ -12,3 +12,8 @@ image:mixcloud-32px.png[alt="Mixcloud", link="https://www.mixcloud.com/josdem" a
 * Jmetadata: link:projects/jmetadata.html[Jmetadata]
 * Jugoterapia: link:projects/jugoterapia.html[Jugoterapia]
 
+== Techtalks
+
+* Groovy: link:techtalks/groovy.html[Groovy]
+* Grails: link:techtalks/grails.html[Grails]
+* Refactoring: link:techtalks/refactoring.html[Refactoring]
