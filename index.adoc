@@ -1,2 +1,8 @@
 = About Me
 Passionate for development, CI, Servers, tools and Music
+
+:imagesdir: ./images
+
+image:github-32px.png[alt="Github", link="https://github.com/josdem" align="center]
+image:blogger-32px.png[alt="Blogger", link="http://josdem.blogspot.mx" align="center]
+image:mixcloud-32px.png[alt="Mixcloud", link="https://www.mixcloud.com/josdem" align="center]
