@@ -6,3 +6,9 @@ Passionate for development, CI, Servers, tools and Music
 image:github-32px.png[alt="Github", link="https://github.com/josdem" align="center]
 image:blogger-32px.png[alt="Blogger", link="http://josdem.blogspot.mx" align="center]
 image:mixcloud-32px.png[alt="Mixcloud", link="https://www.mixcloud.com/josdem" align="center]
+
+== Projects
+
+* Jmetadata: link:projects/jmetadata.html[Jmetadata]
+* Jugoterapia: link:projects/jugoterapia.html[Jugoterapia]
+
