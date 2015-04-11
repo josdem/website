@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>josdem.io : Groovy</title>
+  <link rel="icon" type="image/png" href="../jmetadata-16px.png"/>
+
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="description" content="Basic information about Grails and how create a project">
+  <meta name="author" content="josdem">
+  <meta name="keywords" content="Grails,josdem">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="../css/josdem.css" type="text/css">
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-25685398-3', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+  <div itemscope itemtype ="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Grails</h1>
+    <p itemprop="description">Grails is an open source web application framework it is intended to be a high-productivity framework by following the "coding by convention" paradigm and ready-to-use development environment</p>
+      <div style="display:none">
+        <span itemprop="dateCreated">2015-02-21</span>
+        <span itemprop="genre">Framework</span>
+        <span itemprop="educationalUse">Tech Talks</span>
+        <span itemprop="keywords">Grails, josdem, Frameworks, Grails Introduction, Grails get started</span>	
+      </div>
+  </div>
+
+  <h2>Characteristics</h2>
+  <ul>
+  <li>Web Framework</li>
+  <li>Open Source</li>
+  <li>Cross-platform</li>
+  <li>MVC paradigm</li>
+  </ul>
+  <h2>Features</h2>
+  <ul>
+  <li>Convention-over-Configuration</li>
+  <li>Ready-to-use development environment</li>
+  <li>Functionality available through mixins</li>
+  <li>GSP technology</li>
+  <li>Integrated ORM</li>
+  </ul>
+  <ul>
+  <li>DRY (Don't repeat yourself)</li>
+  <li>Fullstack framework</li>
+  <li>Scripting with Gant</li>
+  <li>Tomcat application server embedded</li>
+  <li>Transactional layout</li>
+  </ul>
+  <ul>
+  <li>Plugin oriented</li>
+  <li>Wide IDE Support</li>
+  <li>Expressive Domain Specific Language</li>
+  <li>Spring support</li>
+  <li>Highly productive</li>
+  </ul>
+  <h2>Creating a simple structure in Grails</h2>
+  <h3>Creating an application</h3>
+  In order to create an application type this command in your command line:
+  <br/><br/>
+  <code>grails create-app project-creator</code>
+  <br/><br/>
+  Output:
+  <br/><br/>
+  <code>Created Grails Application at /home/josdem/Temporal/Grails/project-creator</code>
+  <br/>
+  <p>Grails will create an directory named as the application name, go to that directory and continue creating a domain</p>
+  <h3>Creating a domain</h3>
+  <p>Grails create a relation between domain classes and a table in a database, this is known as ORM (Object-relational Mapping)
+  and Grails uses Hibernate for this.</p>
+  In order to create a domain named Project type this command in your command line:   
+  <br/><br/>
+  <code>grails create-domain-class com.josdem.Project</code>
+  <br/><br/>
+  Output:
+  <br/><br/>  
+  <code>
+  Created file grails-app/domain/com/josdem/Project.groovy
+  <br/>
+  Created file test/unit/com/josdem/ProjectSpec.groovy
+  </code>
+  <br/><br/>
+  Grails validation capability is build on Spring's validator API. However Grails takes this further and provides a unified way to define validation "constraints" with its constraints mechanism.
+  <br/><br/>
+  <code>
+  package com.josdem<br/><br/>
+  class Project {<br/>
+    &nbsp;&nbsp;String name<br/><br/>
+
+    &nbsp;&nbsp;static constraints = {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;name blank:false,size:1..15<br/>
+    &nbsp;&nbsp;}<br/>
+  }<br/> 
+  </code>
+  <br/>
+  In this case we are validating in Project that name can not be blank and its size is between 1 and 15 characters
+  <h3>Scaffolding</h3>
+  <p>Scaffolding lets you generate some basic CRUD interfaces for a domain class, including:
+  <ul>
+  <li>The necessary views</li>
+  <li>Controller actions for create/read/update/delete (CRUD) operations</li>
+  </ul>
+  <h3>Creating a controller</h3>
+  In order to create a controller we need to start grails application, type this:  
+  <br/><br/>
+  <code>
+  grails
+  </code>
+  <br/><br/>
+  And then:<br/><br/>
+  <code>
+  run-app
+  </code>
+  <br/><br/>
+  Output:
+  <br/><br/>
+  <code>
+  Server running. Browse to http://localhost:8080/project-creator<br/>
+  Application loaded in interactive mode. Type 'stop-app' to shutdown.<br/>
+  Enter a script name to run. Use TAB for completion:<br/>
+  </code>
+  <br/>
+  Now we can create a controller named ProjectController type this command in your command line:
+  <br/><br/>
+  <code>
+  create-scaffold-controller com.josdem.Project
+  </code>
+  <br/><br/>
+  Output:
+  <br/><br/>
+  <code>
+  Created file grails-app/controllers/com/josdem/ProjectController.groovy<br/>
+  Created file grails-app/views/project<br/>
+  Created file test/unit/com/josdem/ProjectControllerSpec.groovy<br/>
+  </code>
+  <br/>
+  Now you can explore your the application and the scaffolding
+  <br/><br/>
+  Project exmaple in grails: <a href="grails/operating_system_downloader_counter.html">Download counter</a>
+  <br/><br/>
+
+<footer>
+<!-- TWITTER SHARE BUTTON -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/grails.html" data-via="josdem" data-size="large" data-hashtags="Grails">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!-- GOOGLE PLUS SHARE BUTTON -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<div class="g-plus" data-action="share" data-height="28"></div>
+</footer>
+
+</body>
+</html>
