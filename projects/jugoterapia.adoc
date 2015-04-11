@@ -1,0 +1,9 @@
+= Jugoterapia
+
+Recetas para preparar jugos naturales que te darán alternativas para curar, energetizar, estar saludable y estimular.
+
+[cols="1,5", frame="none"]
+|===
+|image:../images/jugoterapia.png[Jugoterapia] | Cada día la gente se interesa más por tener una alimentación sana y natural, debido a que nos hemos dado cuenta de que eso nos proporciona bienestar y salud, mantiene nuestro cuerpo sano y equilibrado o lo restablece si lo encuentra enfermo. Una forma de lograr una alimentación sana consiste en consumir frutas y verduras en lo que cada dia se va definiendo como una terapia general coadyudante de otras terapias. Se conoce como Jugoterapia y no provoca efectos secundarios.
+|===
+
