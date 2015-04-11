@@ -20,3 +20,14 @@ _Export Button_: Sends ALL metadata to files (cover art and text file) in a sele
 Username & Password are from your last.fm account, they are secure with JMetadata, because we only send a request to lastfm API. We will not store or send your last.fm account to another site. If you don't want to write your username and password you're able to use JMetadata with out signin anyway.
 
 In FeaturesInDevelopment section you can take a look about what we're thinking as future features, also those which are currently in development. It requires Java JRE 1.6. JMetadata has been developed with Windows 7, Linux Ubuntu 12.10 And Mac 10.6.8.
+
+== Wiki
+* link:jmetadata/developers.html[Developers]
+* link:jmetadata/alpha.html[Alpha]
+* link:jmetadata/downloads.html[Downloads]
+
+== Tutorials
+* link:jmetadata/tutorials.html[English]
+* link:jmetadata/tutorials_spanish.html[Spanish]
+
+
