@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>josdem.io : Groovy</title>
+  <link rel="icon" type="image/png" href="../jmetadata-16px.png"/>
+
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="description" content="Basic information about Groovy and examples">
+  <meta name="author" content="josdem">
+  <meta name="keywords" content="Groovy,josdem">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="../css/josdem.css" type="text/css">
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-25685398-3', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+
+  <div itemscope itemtype ="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Groovy</h1>
+    <p itemprop="description">Groovy is an optional typed, dynamic language for the Java platform with many features that are inspired by languages like Phyton, Ruby and Smalltalk, making them available to Java developers using Java-like syntax.</p>
+    <div style="display:none">
+      <span itemprop="dateCreated">2015-02-21</span>
+      <span itemprop="genre">Programming Language</span>
+      <span itemprop="educationalUse">Tech Talks</span>
+      <span itemprop="keywords">Groovy, josdem, Programming Language, Groovy Introduction, Groovy get started</span>	
+    </div>
+  <div>
+
+  <p>Working with Groovy feels like a partnership between you and the language, rather than a battle to express what is clear in your mind in a way the computer can understand.</p>
+  <nav>
+    <a href="groovy_and_other_languages.html">Groovy and other languages</a>
+  </nav>
+  <h2>Characteristics</h2>
+  <ul>
+  <li>Object-oriented programming language</li>
+  <li>Dynamic Language</li>
+  <li>Cross-platform</li>
+  <li>Metaprogramming</li>
+  </ul>
+  <h2>Features</h2>
+  <ul>
+  <li>Write less code</li>
+  <li>Easy to test</li>
+  <li>Interface oriented</li>
+  <li>High-level concurrency</li>
+  <li>Wide-libraries support</li>
+  </ul>
+  <h2>Examples</h2>
+  <h3>Variables</h3>
+  <code>
+  <span style="color: #2015DF;">
+  /**
+  <br/>
+  * &nbsp; How variable assignment works
+  <br/> 
+  **/
+  </span>
+  <br/><br/>
+  &nbsp;&nbsp;<span style="color: #872070; font-weight: bold;">def</span>
+  &nbsp;&nbsp;x = <span style="color: #CD3200;"> 1 </span>
+  <br/>
+  &nbsp;&nbsp;<i>println</i> x
+  <br/>
+  &nbsp;&nbsp;x = <span style="color: #CD3200;"> 3.14159 </span>
+  <br/>
+  &nbsp;&nbsp;<i>println</i> x
+  </br>
+  &nbsp;&nbsp;x = <span style="color: #872070; font-weight: bold;">false</span>
+  <br/>
+  &nbsp;&nbsp;<i>println</i> x
+  </br>
+  &nbsp;&nbsp;x = <span style="color: #FF00CC;">"Groovy"</span>
+  <br/>
+  &nbsp;&nbsp;<i>println</i> x
+  </code>
+  <br/><br/>
+  Output:
+  <br/><br/> 
+  <code>
+  &nbsp;&nbsp;1<br/>
+  &nbsp;&nbsp;3.14159<br/>
+  &nbsp;&nbsp;false<br/>
+  &nbsp;&nbsp;Groovy<br/>
+  </code>
+  <h3>Collections</h3>
+  <code>
+  <span style="color: #2015DF;">
+  /**
+  <br/>
+  * &nbsp; Collections Management
+  <br/> 
+  **/
+  </span>
+  <br/><br/>
+  &nbsp;&nbsp;<span style="color: #872070; font-weight: bold;">def</span> technologies = [<span style="color: #FF00CC;">"Grails"</span>
+]<br/>
+  &nbsp;&nbsp;technologies.add(<span style="color: #FF00CC;">"Groovy"</span>
+)"<br/>
+  &nbsp;&nbsp;technologies << <span style="color: #FF00CC;">"Java"</span> << <span style="color: #FF00CC;">"Griffon"</span><br/>
+  &nbsp;&nbsp;<i>println</i> technologies.contains(<span style="color: #FF00CC;">"Java"</span>)<br/>
+  <br/>
+  &nbsp;&nbsp;technologies.remove(<span style="color: #FF00CC;">"Java"</span>)<br/>
+  &nbsp;&nbsp;<i>println</i> technologies<br/>
+  </code>
+  <br/>
+  Output:
+  <br/><br/>
+  <code>
+  &nbsp;&nbsp;true<br/>
+  &nbsp;&nbsp;[Groovy, Grails, Griffon] <br/>
+  </code>
+  </p>
+
+<footer>
+<!-- TWITTER SHARE BUTTON -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="josdem" data-size="large" data-hashtags="Groovy">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!-- GOOGLE PLUS SHARE BUTTON -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<div class="g-plus" data-action="share" data-height="28"></div>
+</footer>
+</body>
+</html>
