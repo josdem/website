@@ -584,13 +584,51 @@ x = <span class="string"><span class="delimiter">&quot;</span><span class="conte
 println x</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1
+3.14159
+false
+Groovy</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_collections">Collections</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">/**
+*   Collections Management
+**/</span>
+
+<span class="keyword">def</span> technologies = [<span class="string"><span class="delimiter">&quot;</span><span class="content">Grails</span><span class="delimiter">&quot;</span></span> ]
+technologies.add(<span class="string"><span class="delimiter">&quot;</span><span class="content">Groovy</span><span class="delimiter">&quot;</span></span> )<span class="string"><span class="delimiter">&quot;</span></span><span class="error">
+</span>technologies &lt;&lt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span> &lt;&lt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Griffon</span><span class="delimiter">&quot;</span></span>
+println technologies.contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span>)
+
+technologies.remove(<span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span>)
+println technologies</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>true
+[Groovy, Grails, Griffon]</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-11 08:59:29 CDT
+Last updated 2015-04-11 09:11:33 CDT
 </div>
 </div>
 </body>

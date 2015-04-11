@@ -42,3 +42,36 @@ println x
 x = "Groovy"
 println x
 ----
+
+Output:
+
+----
+1
+3.14159
+false
+Groovy
+----
+
+=== Collections
+
+[source,groovy]
+----
+/**
+*   Collections Management
+**/
+
+def technologies = ["Grails" ]
+technologies.add("Groovy" )"
+technologies << "Java" << "Griffon"
+println technologies.contains("Java")
+
+technologies.remove("Java")
+println technologies
+----
+
+Output:
+
+----
+true
+[Groovy, Grails, Griffon]
+----
