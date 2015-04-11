@@ -75,3 +75,7 @@ Output:
 true
 [Groovy, Grails, Griffon]
 ----
+
+'''
+
+footer
