@@ -1,0 +1,41 @@
+= Grails Example Project (Downloader stat)
+
+Simple project with Grails
+
+== Project user story
+
+As application owner I want to deliver my application installer so the client can download it.
+
+=== Acceptance Criteria
+
+* I need to know how many downloads I have by installer
+* Installers are Linux, Ubuntu, Mac and Windows
+* I need to know what is the client IP address
+
+As first step, I'm going to create a project as follow:
+
+----
+grails create-app operating-system-downloader-stat
+----
+
+Next, I'm going to create a Domain as follow:
+
+grails create-domain-class com.tim.Downloader
+
+This domain Downloader will store download stats by operating system, it looks like this:
+
+[source,groovy]
+----
+1 package com.tim
+ 2
+ 3 class Downloader {
+ 4   Date dateCreated
+ 5   String address
+ 6   InstallerType type
+ 7
+ 8   static constraints = {
+ 9     address blank:false,size:5..255
+10   }
+11
+12 }
+----
