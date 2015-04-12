@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>josdem.io : Refactoring - Introduce Parameter Object</title>
+  <link rel="icon" type="image/png" href="../../jmetadata-16px.png"/>
+
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="description" content="Introduce Parameter Object">
+  <meta name="author" content="josdem">
+  <meta name="keywords" content="Refactor,Refactoring,josdem,Introduce Parameter Object">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="../../css/josdem.css" type="text/css">
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-25685398-3', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+<div itemscope itemtype ="http://schema.org/CreativeWork">
+  <h1 itemprop="name">Introduce Parameter Object</h1>
+  <p itemprop="description">You have a group of parameters that naturally go together, replace them with an object.</p>
+  <div style="display:none">
+    <span itemprop="dateCreated">2015-03-09</span>
+    <span itemprop="genre">Refactoring</span>
+    <span itemprop="educationalUse">Tech Talks</span>
+    <span itemprop="keywords">Refactoring, josdem, Refactor, introduce parameter object, object as parameter, too many parameters</span>	
+  </div>
+</div>
+<p>Often you see a particular group of parameters that tend to be passed together. Several methods may use this group, either on one class or in several classes. Such a group of classes is a data clump and can be replaced with an object that carries all of this data. This refactoring is useful because it reduces the size of parameter list, and long parameter lists are hard to understand.</p>
+<h2> Argument as Objects </h2>
+<p>
+When a function seems to need more than two or three arguments, it is likely that some of those arguments ought to be wrapped in to a class of their own. Consider, for example, the difference between the two following declarations:
+</p><br/>
+<code>
+Circle makeCircle(double x, double y, double radius);<br/>
+Circle makeCircle(Point center, double radius);
+</code>
+<br/>
+<p>
+Reducing the number of arguments by creating objects out of them may seem like cheating, but it's not. When groups of variables are passed together, the way x and y are in the example above, they are likely part of a concept that deserves a name of its own. 
+</p>
+<h2>Example</h2>
+Consider the following class:<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/>
+<span style="color: #7F0055; font-weight: bold;">import </span>java.util.List;<br/><br/>
+<span style="color: #7F0055; font-weight: bold;">public class </span>Account {<br/>
+<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Double getTotal(Integer min, Integer max, List<Entry> entries){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Double <span style="color: #646464;">result </span>= 0.00;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">for </span>(Entry <span style="color: #646464;">entry </span>: <span style="color: #646464;">entries</span>) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if </span>(<span style="color: #646464;">entry</span>.getMeassure() >= <span style="color: #646464;">min </span>&& <span style="color: #646464;">entry</span>.getMeassure() <= <span style="color: #646464;">max</span>){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #646464;">result </span>+= <span style="color: #646464;">entry</span>.getValue();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #646464;">result</span>;<br/>
+&nbsp;&nbsp;}<br/><br/>
+}
+</code>
+<br/><br/>
+Applying a simple refactor here, we can group min and max in their own class as follow:
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/><br/>
+<span style="color: #7F0055; font-weight: bold;">public class </span>Range {<br/><br/>
+	
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private final </span>Integer min;<br/>
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private final </span>Integer max;<br/><br/>
+
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Range(Integer min, Integer max) {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">this</span>.min = min;<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">this</span>.max = max;<br/>
+	&nbsp;&nbsp;}<br/><br/>
+	
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Integer getMin() {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span>min;<br/>
+	&nbsp;&nbsp;}<br/><br/>
+	
+	&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Integer getMax() {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span>max;<br/>
+	&nbsp;&nbsp;}<br/><br/>
+	
+}
+</code>
+<br/><br/>
+<p>
+I've made the range class immutable; that is, all the values for the range are final and set in the constructor, hence are no methods for mofifying the values. This is a wise move to avoid aliasing bugs.<br/>
+Now applying refactoring, the original class turns to this one:
+</p>
+<br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;">package </span>com.josdem.refactoring;<br/>
+<span style="color: #7F0055; font-weight: bold;">import </span>java.util.List;<br/><br/>
+<span style="color: #7F0055; font-weight: bold;">public class </span>Account {<br/>
+<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>Double getTotal(Range <span style="color: #646464;">range</span>, List<Entry> entries){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Double <span style="color: #646464;">result </span>= 0.00;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">for </span>(Entry <span style="color: #646464;">entry </span>: <span style="color: #646464;">entries</span>) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">if </span>(<span style="color: #646464;">entry</span>.getMeassure() >= <span style="color: #646464;">range</span>.getMin() && <span style="color: #646464;">entry</span>.getMeassure() <= <span style="color: #646464;">range</span>.getMax()){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #646464;">result </span>+= <span style="color: #646464;">entry</span>.getValue();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">return </span><span style="color: #646464;">result</span>;<br/>
+&nbsp;&nbsp;}<br/><br/>
+}
+
+</code>
+<br/><br/>
+Read more, returning to the main article. <a href="../refactoring.html">Refactoring</a>
+<br/><br/>
+<footer>
+<!-- TWITTER SHARE BUTTON -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/introduce_parameter_object.html" data-via="josdem" data-hashtags="Refactoring" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!-- GOOGLE PLUS SHARE BUTTON -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<div class="g-plus" data-action="share" data-height="28"></div>
+</footer>
+</body>
+</html>
