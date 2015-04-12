@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>josdem.io : Refactoring</title>
+  <link rel="icon" type="image/png" href="../../jmetadata-16px.png"/>
+  
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="description" content="Refactoring replace confitional with polymorphism">
+  <meta name="author" content="josdem">
+  <meta name="keywords" content="Refactor,Refactoring,josdem,Replace conditional with polymorphism">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="../../css/josdem.css" type="text/css">
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-25685398-3', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+<div itemscope itemtype ="http://schema.org/CreativeWork">
+  <h1 itemprop="name">Replace conditional with polymorphism</h1>
+  <p itemprop="description">The essence of polymorphism is that it allows you to avoid writing an explicit conditional when you have objects whose behavior varies depending on their types.<br/>
+Polymorphism gives you many advantages. The biggest gain occurs when this same set of conditions appears in many places in the program. if you want to add a new type, you have to find and update all the conditionals, but with subclasses you just create a new subclass and provide the appropriate methods.</p>
+  <div style="display:none">
+    <span itemprop="dateCreated">2015-02-26</span>
+    <span itemprop="genre">Refactoring</span>
+    <span itemprop="educationalUse">Tech Talks</span>
+    <span itemprop="keywords">Refactoring, josdem, Refactor, replace conditional with polymorphism</span>	
+  </div>
+</div>
+<h2>Example</h2>
+I will show you the traditional example of employee payment.
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> com.josdem.bean.EmployeeType;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class </span> Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> private final </span> BigDecimal <span style="color: #0000C0;">monltySalary</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(100.00);
+<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> private final </span> BigDecimal <span style="color: #0000C0;">bonus</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(20.00);
+<br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> private final </span> BigDecimal <span style="color: #0000C0;">commission</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(10.00);
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> public </span> BigDecimal getPaymentAmount(EmployeeType <span style="color: #646464;">type</span>) {
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">switch</span>(<span style="color: #646464;">type</span>){
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> case </span> BigDecimal <span style="color: #0000C0;font-weight: bold;">ENGINEER</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> return </span><span style="color: #0000C0;">monltySalary</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> case </span> BigDecimal <span style="color: #0000C0;font-weight: bold;">SALESMAN</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> return </span><span style="color: #0000C0;">monltySalary</span>.add(<span style="color: #0000C0;">commission</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> case </span> BigDecimal <span style="color: #0000C0;font-weight: bold;">MANAGER</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> return </span><span style="color: #0000C0;">monltySalary</span>.add(<span style="color: #0000C0;">bonus</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> default</span>:
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;"> throw new </span>RuntimeException(<span style="color: #0000C0;">"Incorrect Employee"</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;}
+<br/><br/>
+}
+</code>
+<br/><br/>
+Before you can begin with <i>Replace Conditional With Polymorphism</i> you need to have the necessary inheritance structure.<br/>
+The simpliest way to establish this structure is replace type code with subclasses for each type code.
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public interface </span> Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">final </span> BigDecimal <span style="color: #0000C0;">monthlySalary</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(100);
+<br/>
+&nbsp;&nbsp;BigDecimal getPaymentAmount();
+<br/><br/>
+}
+</code>
+<br/>
+<p>I highly recommend you to use interfaces in order to establish your inheritance structure, it allows you to decouple your code in an easy way.</p>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class</span> Engineer <span style="color: #7F0055; font-weight: bold;"> implements </span>Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>BigDecimal getPaymentAmount() {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055;font-weight: bold;">return</span><span style="color: #0000C0;font-weight: bold;"> monthlySalary;</span><br/>
+&nbsp;&nbsp;}
+<br/><br/>
+}
+<br/><br/>
+</code>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class</span> Salesman <span style="color: #7F0055; font-weight: bold;"> implements </span>Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private </span> BigDecimal <span style="color: #0000C0;">commission</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(10);
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>BigDecimal getPaymentAmount() {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055;font-weight: bold;">return</span><span style="color: #0000C0;font-weight: bold;"> monthlySalary</span>.add(<span style="color: #0000C0;">commission</span>);
+<br/>
+&nbsp;&nbsp;}
+<br/><br/>
+}
+</code>
+<br/><br/>
+<code>
+<span style="color: #7F0055; font-weight: bold;"> package </span> com.josdem.refactoring;
+<br/>
+<span style="color: #7F0055; font-weight: bold;"> import </span> java.math.BigDecimal;
+<br/><br/>
+<span style="color: #7F0055; font-weight: bold;"> public class</span> Manager <span style="color: #7F0055; font-weight: bold;"> implements </span>Employee {
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">private </span> BigDecimal <span style="color: #0000C0;">bonus</span> =<span style="color: #7F0055; font-weight: bold;"> new </span> BigDecimal(20);
+<br/><br/>
+&nbsp;&nbsp;<span style="color: #7F0055; font-weight: bold;">public </span>BigDecimal getPaymentAmount() {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7F0055;font-weight: bold;">return</span><span style="color: #0000C0;font-weight: bold;"> monthlySalary</span>.add(<span style="color: #0000C0;">bonus</span>);
+<br/>
+&nbsp;&nbsp;}
+<br/><br/>
+}
+</code>
+<br/><br/>
+Read more, returning to the main article. <a href="../refactoring.html">Refactoring</a>
+<br/><br/>
+<footer>
+<!-- TWITTER SHARE BUTTON -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://josdem.io/techtalks/refactoring/replace_conditional_with_polymorphism.html" data-via="josdem" data-hashtags="Refactoring" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!-- GOOGLE PLUS SHARE BUTTON -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<div class="g-plus" data-action="share" data-height="28"></div>
+</footer>
+</body>
+</html>
