@@ -1,6 +1,6 @@
 = Tutoriales
 
-Toda la información referente a la funcionalidad de JMetadata.
+Toda la información referente a la funcionalidad de Jmetadata.
 
 * Funcionalidad principal
 

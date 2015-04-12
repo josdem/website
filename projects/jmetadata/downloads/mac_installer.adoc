@@ -1,0 +1,18 @@
+= Jmetadata.dmg
+
+File: link:http://josdem.io:8081/jmetadata-download-stats/downloader/downloadMacVersion[JMetadata.dmg] 18.8 MB
+
+== Instructions:
+
+. Download the installer
+. Double click on Installer
+. Drag & Drop JMetadata Application to the Applications folder
+. You should find JMetadata now in your Applications collection
+
+MD5: 92bbd09d60d94943e2d07539704b7539
+
+link:../../jmetadata.html[Return to the main article]
+
+'''
+
+Footer
