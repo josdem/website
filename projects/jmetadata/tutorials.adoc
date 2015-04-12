@@ -1,0 +1,33 @@
+= Tutorials
+
+All information concerning JMetadata functionality.
+
+* Main functionality
+
+image:http://farm6.staticflickr.com/5528/9656464534_00eba54d82.jpg[link="http://www.youtube.com/watch?v=p787VIw1Vz4"]
+
+* Adding cover art using drag & drop
+
+image:http://farm6.staticflickr.com/5461/9653295759_b9069c06b7.jpg[link="http://www.youtube.com/watch?v=8MbS4Ksh_Dc"]
+
+* Adding same information to several files
+
+image:http://farm4.staticflickr.com/3696/9653382675_0a0323b9f5.jpg[link="http://www.youtube.com/watch?v=MWrs_6WQH3Q"]
+
+* Exporting metadata to a directory
+
+image:http://farm4.staticflickr.com/3798/9653472877_a3613fc648.jpg[link="http://www.youtube.com/watch?v=CJG5EjbneC0"]
+
+* Complete basic information an album needs in automatically way
+
+image:http://farm3.staticflickr.com/2865/9656739516_0250cc2b2d.jpg[link="http://www.youtube.com/watch?v=6isUjfupz4s"]
+
+* Sending scrobblings to your LastFM account
+
+image:http://farm8.staticflickr.com/7287/9737384496_f0cebdf70a.jpg[link="http://www.youtube.com/watch?v=4g74FQH7di8"]
+
+link:../jmetadata.html[Return to the main article]
+
+'''
+
+Footer
