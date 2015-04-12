@@ -2,10 +2,10 @@
 
 JMetadata installers.
 
-* JMetadata.dmg (Mac Installer)
-* JMetadata.deb (Ubuntu Installer)
-* JMetadata.exe (Windows Installer)
-* JMetadata-Linux.zip (Linux Script)
+* link:downloads/mac_installer.html[JMetadata.dmg] (Mac Installer)
+* link:downloads/ubuntu_installer.html[JMetadata.deb] (Ubuntu Installer)
+* link:downloads/windows_installer.html[JMetadata.exe] (Windows Installer)
+* link:downloads/linux_installer.html[JMetadata-Linux.zip] (Linux Script)
 
 link:../jmetadata.html[Return to the main article]
 
