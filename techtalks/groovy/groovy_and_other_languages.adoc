@@ -22,6 +22,8 @@ alternative :Clojure
 
 The Groovy solution is short, precise and more compact than regular Java. Groovy doesn't need to import the java.util package or specify the Date type.
 
+link:../groovy.html[Return to the main article]
+
 '''
 
 footer

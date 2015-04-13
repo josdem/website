@@ -5,27 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>josdem.io : Groovy</title>
-<link rel="icon" type="image/png" href="../jmetadata-16px.png"/>
-
-<meta name=viewport content="width=device-width, initial-scale=1">
-<meta name="description" content="Basic information about Groovy and examples">
-<meta name="author" content="josdem">
-<meta name="keywords" content="Groovy,josdem">
-<meta charset="UTF-8">
-
-<link rel="stylesheet" href="../css/josdem.css" type="text/css">
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-25685398-3', 'auto');
-ga('send', 'pageview');
-</script>
-
+<title>Closures</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -521,138 +501,66 @@ table.CodeRay td.code>pre{padding:0}
 </style>
 </head>
 <body class="article">
-<div itemscope itemtype ="http://schema.org/CreativeWork">
-  <div style="display:none">
-  <h1 itemprop="name">Groovy</h1>
-  <p itemprop="description">Groovy is an optional typed, dynamic language for the Java platform with many features that are inspired by languages like Phyton, Ruby and Smalltalk, making them available to Java developers using Java-like syntax.</p>
-    <span itemprop="dateCreated">2015-02-21</span>
-    <span itemprop="genre">Programming Language</span>
-    <span itemprop="educationalUse">Tech Talks</span>
-    <span itemprop="keywords">Groovy, josdem, Programming Language, Groovy Introduction, Groovy get started</span>
-  </div>
-<div>
-
 <div id="header">
-<h1>Groovy</h1>
+<h1>Closures</h1>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>Groovy is an optional typed, dynamic language for the Java platform with many features that are inspired by languages like Phyton, Ruby and Smalltalk, making them available to Java developers using Java-like syntax.</p>
+<p>Informally, a closure can be recognized as a list of statements within braces, like any other code block. It optionally has a list of identifiers to name the parameters passed to it, with an &#8594; making the end of the list.</p>
 </div>
 <div class="paragraph">
-<p>Working with Groovy feels like a partnership between you and the language, rather than a battle to express what is clear in your mind in a way the computer can understand.</p>
+<p>It&#8217;s easiest to undertands closures through examples, so let&#8217;s consider the following example:</p>
 </div>
-<div class="paragraph">
-<p><a href="groovy/groovy_and_other_languages.html">Groovy and other languages</a></p>
-<p><a href="groovy/closures.html">Closures</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_characteristics">Characteristics</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Object-oriented programming language</p>
-</li>
-<li>
-<p>Dynamic Language</p>
-</li>
-<li>
-<p>Cross-platform</p>
-</li>
-<li>
-<p>Metaprogramming</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_features">Features</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Write less code</p>
-</li>
-<li>
-<p>Easy to test</p>
-</li>
-<li>
-<p>Interface oriented</p>
-</li>
-<li>
-<p>High-level concurrency</p>
-</li>
-<li>
-<p>Wide-libraries support</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_examples">Examples</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_variables">Variables</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">/**
-*   How variable assignment works
-**/</span>
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">def</span> adder = {i,j -&gt; i + j} <b class="conum">(1)</b>
+<span class="keyword">assert</span> adder(<span class="integer">40</span>,<span class="integer">60</span>) == <span class="integer">100</span> <b class="conum">(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Define a closure which receive two parameters and then sum that parameters</p>
+</li>
+<li>
+<p>Verify that calling adder closure with 40 and 60 as parameters returns 100</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s consider a slightly more complicated question: If <em>n</em> people are at a party and everyone clinks glasses with everybody else, how many clinks do you hear?.</p>
+</div>
+<div class="paragraph">
+<p>To answer the question, you can use Integer&#8217;s upto methodm which does <em>something</em> for every Integer starting at the current value. You apply this method to the problem by imaginating people arriving at the party at one by one. As people arrive, they clink glasses with everyone who is already present. This way, everyone clinks glasses with everyone else exactly once.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">def</span> totalClinks = <span class="integer">0</span>
+<span class="keyword">def</span> partyPeople = <span class="integer">100</span>
 
-<span class="keyword">def</span>   x = <span class="integer">1</span>
-println x
-x = <span class="float">3.14159</span>
-println x
-x = <span class="predefined-constant">false</span>
-println x
-x = <span class="string"><span class="delimiter">&quot;</span><span class="content">Groovy</span><span class="delimiter">&quot;</span></span>
-println x</code></pre>
+<span class="integer">1</span>.upto(partyPeople) { guestNumber -&gt;
+  clinksWithGuest = guestNumber - <span class="integer">1</span> <b class="conum">(1)</b>
+  totalClinks += clinksWithGuest    <b class="conum">(2)</b>
+}
+
+<span class="keyword">assert</span> totalClinks == (partyPeople * (partyPeople-<span class="integer">1</span>)) / <span class="integer">2</span> <b class="conum">(3)</b></code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Counting number of people already present</p>
+</li>
+<li>
+<p>Keep running total of the number of clinks</p>
+</li>
+<li>
+<p>Test the result using Gauss' formula</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Output:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>1
-3.14159
-false
-Groovy</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_collections">Collections</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">/**
-*   Collections Management
-**/</span>
-
-<span class="keyword">def</span> technologies = [<span class="string"><span class="delimiter">&quot;</span><span class="content">Grails</span><span class="delimiter">&quot;</span></span> ]
-technologies.add(<span class="string"><span class="delimiter">&quot;</span><span class="content">Groovy</span><span class="delimiter">&quot;</span></span> )<span class="string"><span class="delimiter">&quot;</span></span><span class="error">
-</span>technologies &lt;&lt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span> &lt;&lt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Griffon</span><span class="delimiter">&quot;</span></span>
-println technologies.contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span>)
-
-technologies.remove(<span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span>)
-println technologies</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Output:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>true
-[Groovy, Grails, Griffon]</pre>
-</div>
+<p><a href="../groovy.html">Return to the main article</a></p>
 </div>
 <hr>
 
@@ -663,9 +571,6 @@ println technologies</code></pre>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <div class="g-plus" data-action="share" data-height="28"></div>
 
-</div>
-</div>
-</div>
 </div>
 <div id="footer">
 <div id="footer-text">
