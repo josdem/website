@@ -531,7 +531,7 @@ table.CodeRay td.code>pre{padding:0}
 <p>Let&#8217;s consider a slightly more complicated question: If <em>n</em> people are at a party and everyone clinks glasses with everybody else, how many clinks do you hear?.</p>
 </div>
 <div class="paragraph">
-<p>To answer the question, you can use Integer&#8217;s upto methodm which does <em>something</em> for every Integer starting at the current value. You apply this method to the problem by imaginating people arriving at the party at one by one. As people arrive, they clink glasses with everyone who is already present. This way, everyone clinks glasses with everyone else exactly once.</p>
+<p>To answer the question, you can use Integer&#8217;s upto method which does <em>something</em> for every Integer starting at the current value. You apply this method to the problem by imaginating people arriving at the party at one by one. As people arrive, they clink glasses with everyone who is already present. This way, everyone clinks glasses with everyone else exactly once.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -560,20 +560,76 @@ table.CodeRay td.code>pre{padding:0}
 </ol>
 </div>
 <div class="paragraph">
+<p>Another simple examples of closures would be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">def</span> greeting = { <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello, </span><span class="inline"><span class="inline-delimiter">$</span><span class="local-variable">it</span></span><span class="content">!</span><span class="delimiter">&quot;</span></span> } <b class="conum">(1)</b>
+<span class="keyword">assert</span> greeting(<span class="string"><span class="delimiter">'</span><span class="content">Patrick</span><span class="delimiter">'</span></span>) == <span class="string"><span class="delimiter">'</span><span class="content">Hello, Patrick!</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Defines an implicit parameter, named it</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">list.each{
+  print <span class="local-variable">it</span> <b class="conum">(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Prints each element from the list</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">def</span> number = <span class="integer">3</span>
+number.times {
+  println <span class="string"><span class="delimiter">&quot;</span><span class="content">hi</span><span class="delimiter">&quot;</span></span> <b class="conum">(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Prints hi three times</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">def</span> list = [<span class="integer">1</span>,<span class="integer">2</span>,<span class="integer">3</span>,<span class="integer">4</span>]
+println list.findAll{
+  <span class="local-variable">it</span>%<span class="integer">2</span> == <span class="integer">0</span> <b class="conum">(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Go through the list and find all elements that is divisible by two</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
 <p><a href="../groovy.html">Return to the main article</a></p>
 </div>
 <hr>
-
-<!-- TWITTER SHARE BUTTON -->
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="josdem" data-size="large" data-hashtags="Groovy">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<!-- GOOGLE PLUS SHARE BUTTON -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<div class="g-plus" data-action="share" data-height="28"></div>
-
+<div class="paragraph">
+<p>Footer</p>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
+Last updated 2015-04-13 10:45:34 CDT
 </div>
 </div>
 </body>
