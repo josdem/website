@@ -517,10 +517,76 @@ table.CodeRay td.code>pre{padding:0}
 <span class="keyword">assert</span> message == <span class="string"><span class="delimiter">'</span><span class="content">Hi Hi Hi Hi Hi </span><span class="delimiter">'</span></span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>The for loop in Groovy is much simpler and works with any kind of array, collection, Map, etc.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// iterate over a range</span>
+<span class="keyword">def</span> x = <span class="integer">0</span>
+<span class="keyword">for</span> ( i <span class="keyword">in</span> <span class="integer">0</span>..<span class="integer">9</span> ) {
+    x += i
+}
+<span class="keyword">assert</span> x == <span class="integer">45</span>
+
+<span class="comment">// iterate over a list</span>
+x = <span class="integer">0</span>
+<span class="keyword">for</span> ( i <span class="keyword">in</span> [<span class="integer">0</span>, <span class="integer">1</span>, <span class="integer">2</span>, <span class="integer">3</span>, <span class="integer">4</span>] ) {
+    x += i
+}
+<span class="keyword">assert</span> x == <span class="integer">10</span>
+
+<span class="comment">// iterate over an array</span>
+<span class="keyword">def</span> array = (<span class="integer">0</span>..<span class="integer">4</span>).toArray()
+x = <span class="integer">0</span>
+<span class="keyword">for</span> ( i <span class="keyword">in</span> array ) {
+    x += i
+}
+<span class="keyword">assert</span> x == <span class="integer">10</span>
+
+<span class="comment">// iterate over a map</span>
+<span class="keyword">def</span> map = [<span class="string"><span class="delimiter">'</span><span class="content">abc</span><span class="delimiter">'</span></span>:<span class="integer">1</span>, <span class="string"><span class="delimiter">'</span><span class="content">def</span><span class="delimiter">'</span></span>:<span class="integer">2</span>, <span class="string"><span class="delimiter">'</span><span class="content">xyz</span><span class="delimiter">'</span></span>:<span class="integer">3</span>]
+x = <span class="integer">0</span>
+<span class="keyword">for</span> ( e <span class="keyword">in</span> map ) {
+    x += e.value
+}
+<span class="keyword">assert</span> x == <span class="integer">6</span>
+
+<span class="comment">// iterate over values in a map</span>
+x = <span class="integer">0</span>
+<span class="keyword">for</span> ( v <span class="keyword">in</span> map.values() ) {
+    x += v
+}
+<span class="keyword">assert</span> x == <span class="integer">6</span>
+
+<span class="comment">// iterate over the characters in a string</span>
+<span class="keyword">def</span> text = <span class="string"><span class="delimiter">&quot;</span><span class="content">abc</span><span class="delimiter">&quot;</span></span>
+<span class="keyword">def</span> list = <span class="type">[]</span>
+<span class="keyword">for</span> (c <span class="keyword">in</span> text) {
+    list.add(c)
+}
+<span class="keyword">assert</span> list == [<span class="string"><span class="delimiter">&quot;</span><span class="content">a</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">b</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span>]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Groovy supports the usual while</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">def</span> x = <span class="integer">0</span>
+<span class="keyword">def</span> y = <span class="integer">5</span>
+
+<span class="keyword">while</span> ( y-- &gt; <span class="integer">0</span> ) {
+    x++
+}
+
+<span class="keyword">assert</span> x == <span class="integer">5</span></code></pre>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-30 15:04:37 CDT
+Last updated 2015-04-30 15:17:10 CDT
 </div>
 </div>
 </body>
