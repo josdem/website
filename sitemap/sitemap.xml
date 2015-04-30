@@ -96,6 +96,11 @@
   <loc>http://josdem.io/techtalks/groovy/closures.html</loc>
   <lastmod>2015-04-13T11:18:56+00:00</lastmod>
   <changefreq>daily</changefreq>
+  </url>
+<url>
+  <loc>http://josdem.io/techtalks/groovy/program_structure.html</loc>
+  <lastmod>2015-04-29T11:18:56+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://josdem.io/techtalks/refactoring/duplicated_code.html</loc>
