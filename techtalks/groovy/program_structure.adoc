@@ -61,6 +61,25 @@ server.name = "Obelix"
 server.cluster = aCluster
 ----
 
+== A complete basic class
+
+Here is a class with a main function that allows you to execute it as Groovy program.
+
+[source,groovy]
+----
+package com.josdem
+
+  class Todo{
+    String name
+    String note
+
+    public static main(String[] args){
+      Todo todo = new Todo(name:"Tweet",note:"About my site")
+      print todo.dump()
+    }
+}
+----
+
 TIP: It is your turn! create a class with a method that receives an integer if its 1 prints your firstname, if receives 2 prints your lastname.
 
 == Groovy Truth
