@@ -1,0 +1,52 @@
+:source-highlighter: coderay
+
+= Data types
+
+Now that you know how to execute Groovy code it will be easier for you to follow the examples and explore them at your leisure. Let's continue with the supported data types. Contrary to what Java offers, all types in Groovy are objects. There are no primitive data types, and what's more, the following listing shows one of the many ways to execute a loop through a series of integers.
+
+[source,groovy]
+----
+3.times {
+   println "hello"
+}
+----
+
+After executing this listing you will see the word 'hello' printed 3 times, which is exactly what the code says if you read it like an English sentence "3 times print 'hello'", right? If you were not shocked at the surprise of being able to execute a method call on a number, then you may be wondering why the code 'println "hello"' is not executed right away. The answer lies in that that block of code is known as a Closure, which we will review at a later time. For now it is important that you understand that closures are blocks of code.
+
+Groovy adds a little bit of syntactic sugar by allowing list indexes and map keys to be accessed with the '[]' operator, in the case of maps '.' is also allowed:
+
+[source,groovy]
+----
+def list = [1,2,3,4,5]
+def map = ["key":"value"]
+
+assert list.get(0) == 1
+assert list[0] == 1
+assert map.get("key") == "value"
+assert map["key"] == "value"
+assert map.key == "value"
+assert map."key" == "value
+
+def emptyList = []
+def emptyMap = [:]
+
+// lists grow dynamically
+// like JavaScript arrays do
+def list = []
+list[9] = 10
+assert list[9] == 10
+assert list.size() == 10
+----
+
+Ranges are another useful type. They define a sequence of values that can be traversed forward or backward. They are usually used to create sublists but definitely have more uses than that.
+
+[source,groovy]
+----
+// the operator [] used with strings
+// is like calling substring() or charAt() on the string
+println "Groovy"[0..3]
+// prints Groo
+
+(0..9).each { num -> print num }
+// prints 0123456789
+----
