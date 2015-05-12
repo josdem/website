@@ -10,7 +10,7 @@ link:groovy/groovy_and_other_languages.html[Groovy and other languages]
 link:groovy/program_structure.html[Program Structure]
 link:groovy/looping_structures.html[Looping structures]
 link:groovy/closures.html[Closures]
-
+link:groovy/metaprogramming.html[Metaprogramming]
 
 == Characteristics
 

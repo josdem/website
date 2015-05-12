@@ -5,27 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>josdem.io : Groovy</title>
-<link rel="icon" type="image/png" href="../jmetadata-16px.png"/>
-
-<meta name=viewport content="width=device-width, initial-scale=1">
-<meta name="description" content="Basic information about Groovy and examples">
-<meta name="author" content="josdem">
-<meta name="keywords" content="Groovy,josdem">
-<meta charset="UTF-8">
-
-<link rel="stylesheet" href="../css/josdem.css" type="text/css">
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-25685398-3', 'auto');
-ga('send', 'pageview');
-</script>
-
+<title>Metaprogramming</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -521,157 +501,286 @@ table.CodeRay td.code>pre{padding:0}
 </style>
 </head>
 <body class="article">
-<div itemscope itemtype ="http://schema.org/CreativeWork">
-  <div style="display:none">
-  <h1 itemprop="name">Groovy</h1>
-  <p itemprop="description">Groovy is an optional typed, dynamic language for the Java platform with many features that are inspired by languages like Phyton, Ruby and Smalltalk, making them available to Java developers using Java-like syntax.</p>
-    <span itemprop="dateCreated">2015-02-21</span>
-    <span itemprop="genre">Programming Language</span>
-    <span itemprop="educationalUse">Tech Talks</span>
-    <span itemprop="keywords">Groovy, josdem, Programming Language, Groovy Introduction, Groovy get started</span>
-  </div>
-<div>
-
 <div id="header">
-<h1>Groovy</h1>
+<h1>Metaprogramming</h1>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Groovy is an optional typed, dynamic language for the Java platform with many features that are inspired by languages like Phyton, Ruby and Smalltalk, making them available to Java developers using Java-like syntax.</p>
-</div>
-<div class="paragraph">
-<p>Working with Groovy feels like a partnership between you and the language, rather than a battle to express what is clear in your mind in a way the computer can understand.</p>
-</div>
-<div class="paragraph">
-<p><a href="groovy/groovy_and_other_languages.html">Groovy and other languages</a></p>
-<p><a href="groovy/program_structure.html">Program_Structure</a></p>
-<p><a href="groovy/looping_structures.html">Looping structures</a></p>
-<p><a href="groovy/closures.html">Closures</a></p>
-<p><a href="groovy/metaprogramming.html">Metaprogramming</a></p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2 id="_characteristics">Characteristics</h2>
+<h2 id="_what_is">What is?</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Object-oriented programming language</p>
+<p>Behavior changes at runtime</p>
 </li>
 <li>
-<p>Dynamic Language</p>
-</li>
-<li>
-<p>Cross-platform</p>
-</li>
-<li>
-<p>Metaprogramming</p>
+<p>Capabilities are introduced at runtime</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_features">Features</h2>
+<h2 id="_groovy_is_dynamic">Groovy is dynamic</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Write less code</p>
-</li>
-<li>
-<p>Easy to test</p>
-</li>
-<li>
-<p>Interface oriented</p>
-</li>
-<li>
-<p>High-level concurrency</p>
-</li>
-<li>
-<p>Wide-libraries support</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>In Grails, for example, you see statements like Album.findByArtist('Oscar Peterson') but the Album class has no such method! Neither has any superclass. No class has such a method! The trick is that method calls are funneled through an object called MetaClass, which in this case regognizes that there&#8217;s no corresponding method in the bytecode of Album and therefore relays the call to its missingMethod handler. This knows about the naming convention of Grails' dynamic finder methods and fetches your favorite albums from the database.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples">Examples</h2>
+<h2 id="_expando">Expando</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_variables">Variables</h3>
+<div class="paragraph">
+<p>Dynamically expanding an object.</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">/**
-*   How variable assignment works
-**/</span>
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">def</span> myExpando = <span class="keyword">new</span> Expando()
+myExpando.favoriteLanguage = <span class="string"><span class="delimiter">'</span><span class="content">Groovy</span><span class="delimiter">'</span></span>
+myExpando.addNumbers = { i,j -&gt; i + j }
 
-<span class="keyword">def</span>   x = <span class="integer">1</span>
-println x
-x = <span class="float">3.14159</span>
-println x
-x = <span class="predefined-constant">false</span>
-println x
-x = <span class="string"><span class="delimiter">&quot;</span><span class="content">Groovy</span><span class="delimiter">&quot;</span></span>
-println x</code></pre>
+<span class="keyword">assert</span> <span class="string"><span class="delimiter">'</span><span class="content">Groovy</span><span class="delimiter">'</span></span> == myExpando.favoriteLanguage
+<span class="keyword">assert</span> <span class="integer">100</span> == myExpando.addNumbers(<span class="integer">60</span>,<span class="integer">40</span>)
+<span class="keyword">assert</span> myExpando.foo == <span class="predefined-constant">null</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Output:</p>
+<p>Runtime mapping</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>1
-3.14159
-false
-Groovy</pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">expando.favoriteLanguage = <span class="string"><span class="delimiter">'</span><span class="content">Groovy</span><span class="delimiter">'</span></span>
+<span class="comment">//maps to...</span>
+expando.setProperty(<span class="string"><span class="delimiter">'</span><span class="content">favoriteLanguage</span><span class="delimiter">'</span></span>,<span class="string"><span class="delimiter">'</span><span class="content">Groovy</span><span class="delimiter">'</span></span>)
+
+expando.favoriteLanguage
+<span class="comment">//maps to...</span>
+expando.getProperty(<span class="string"><span class="delimiter">'</span><span class="content">favoriteLanguage</span><span class="delimiter">'</span></span>)
+
+expando.addNumbers(<span class="integer">60</span>,<span class="integer">40</span>)
+<span class="comment">//maps to...</span>
+expando.invokeMethod(<span class="string"><span class="delimiter">'</span><span class="content">addNumbers</span><span class="delimiter">'</span></span>, [<span class="integer">33</span>,<span class="integer">66</span>] <span class="keyword">as</span> <span class="predefined-type">Object</span><span class="type">[]</span>)</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_collections">Collections</h3>
+</div>
+<div class="sect1">
+<h2 id="_our_own_expando">Our own expando</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With those 3 simple methods, we can create our own version of expando.</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">/**
-*   Collections Management
-**/</span>
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> com.demo
 
-<span class="keyword">def</span> technologies = [<span class="string"><span class="delimiter">&quot;</span><span class="content">Grails</span><span class="delimiter">&quot;</span></span> ]
-technologies.add(<span class="string"><span class="delimiter">&quot;</span><span class="content">Groovy</span><span class="delimiter">&quot;</span></span> )<span class="string"><span class="delimiter">&quot;</span></span><span class="error">
-</span>technologies &lt;&lt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span> &lt;&lt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Griffon</span><span class="delimiter">&quot;</span></span>
-println technologies.contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span>)
+<span class="keyword">import</span> <span class="include">spock.lang.Specification</span>
 
-technologies.remove(<span class="string"><span class="delimiter">&quot;</span><span class="content">Java</span><span class="delimiter">&quot;</span></span>)
-println technologies</code></pre>
+<span class="type">class</span> <span class="class">MetaExpandoSpec</span> <span class="directive">extends</span> Specification {
+  <span class="type">void</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">should test property access</span><span class="delimiter">&quot;</span></span>(){
+  <span class="key">given</span>:
+    <span class="keyword">def</span> expando = <span class="keyword">new</span> MetaExpando() <b class="conum">(1)</b>
+  <span class="key">when</span>:
+    expando.town = <span class="string"><span class="delimiter">'</span><span class="content">Mexico City</span><span class="delimiter">'</span></span>  <b class="conum">(2)</b>
+  <span class="key">then</span>:
+    expando.town == <span class="string"><span class="delimiter">'</span><span class="content">Mexico City</span><span class="delimiter">'</span></span> <b class="conum">(3)</b>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Creating an new instance of expando class</p>
+</li>
+<li>
+<p>Assigning an value to a property does not exist</p>
+</li>
+<li>
+<p>Asserting retrieve value is expected to be</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If we run this test we will get an MissingPropertyException, since i&#8217;m assigning a value to a propery that it does not exist. So now we are going to add some code to the expando class that allow this work.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> com.demo
+
+<span class="type">class</span> <span class="class">MetaExpando</span> {
+
+  <span class="directive">private</span> dynamicProps = [:] <b class="conum">(1)</b>
+
+  <span class="type">void</span> setProperty(<span class="predefined-type">String</span> propName, val) {
+    dynamicProps[propName] = val <b class="conum">(2)</b>
+  }
+
+  <span class="keyword">def</span> <span class="function">getProperty</span>(<span class="predefined-type">String</span> propName){
+    dynamicProps[propName] <b class="conum">(3)</b>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Creating an empty map to storing properties values</p>
+</li>
+<li>
+<p>Putting an entry to the map</p>
+</li>
+<li>
+<p>Returning value in the map that is associated with the key</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">void</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">should invoke a method does not exist</span><span class="delimiter">&quot;</span></span>(){
+  <span class="key">given</span>:
+    <span class="keyword">def</span> expando = <span class="keyword">new</span> MetaExpando()
+  <span class="key">when</span>:
+    expando.addNumbers = { x, y, z -&gt; x + y + z } <b class="conum">(1)</b>
+  <span class="key">then</span>:
+    <span class="integer">100</span> == expando.addNumbers(<span class="integer">30</span>, <span class="integer">20</span>, <span class="integer">50</span>) <b class="conum">(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Define a clusure which receives three parameters, and summarize them.</p>
+</li>
+<li>
+<p>We expect that sending 30, 20 and 50 as parameters the result will be 100</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> com.demo
+
+<span class="type">class</span> <span class="class">MetaExpando</span> {
+
+  <span class="directive">private</span> dynamicProps = [:]
+
+  <span class="type">void</span> setProperty(<span class="predefined-type">String</span> propName, val) {
+    dynamicProps[propName] = val
+  }
+
+  <span class="keyword">def</span> <span class="function">getProperty</span>(<span class="predefined-type">String</span> propName){
+    dynamicProps[propName]
+  }
+
+  <span class="keyword">def</span> <span class="function">methodMissing</span>(<span class="predefined-type">String</span> methodName, args) { <b class="conum">(1)</b>
+    <span class="keyword">def</span> prop = dynamicProps[methodName] <b class="conum">(2)</b>
+    <span class="keyword">if</span> (prop <span class="keyword">instanceof</span> Closure){ <b class="conum">(3)</b>
+      <span class="keyword">return</span> prop(*args) <b class="conum">(4)</b>
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>MethodMissing is called in groovy by default when no method is found in class.</p>
+</li>
+<li>
+<p>Retrieving the map the value associated with the method name</p>
+</li>
+<li>
+<p>Verify if value from the map is a closure</p>
+</li>
+<li>
+<p>Execute closure and pass all the parameters</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_closure_delegates">Closure delegates</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Closure may be assignated a "delegate"</p>
+</li>
+<li>
+<p>Closures relay method calls to their delegate</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Every closure has a delegate method associated with it. Let&#8217;s consider the following code.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">closure = {
+  append <span class="string"><span class="delimiter">'</span><span class="content">one</span><span class="delimiter">'</span></span>
+  append <span class="string"><span class="delimiter">'</span><span class="content">Two</span><span class="delimiter">'</span></span>
+}
+
+closure()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Output:</p>
+<p>This code will thrown an groovy.lang.MissingMethodException since method append does not exist. But if we do something like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>true
-[Groovy, Grails, Griffon]</pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">closure = {
+  append <span class="string"><span class="delimiter">'</span><span class="content">one</span><span class="delimiter">'</span></span>
+  append <span class="string"><span class="delimiter">'</span><span class="content">Two</span><span class="delimiter">'</span></span>
+}
+
+<span class="keyword">def</span> sb = <span class="keyword">new</span> <span class="predefined-type">StringBuffer</span>()
+closure.delegate = sb
+closure()
+
+print <span class="string"><span class="delimiter">&quot;</span><span class="content">StringBuffer value: </span><span class="inline"><span class="inline-delimiter">${</span>sb<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>The sb value is now 'oneTwo', since closure delegates the append functionality to the StringBuffer class. So when we use delegate, we are allowing to Groovy the oportunitty to delegate others respond to that method calls.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_functionality_at_runtime">Adding functionality at runtime</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes you might want to change behavior to some functionality allowing to the developer write less code, let&#8217;s consider the following snipppet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">String</span>.metaClass.doSomething = {
+  println <span class="string"><span class="delimiter">&quot;</span><span class="content">I'm doing something</span><span class="delimiter">&quot;</span></span>
+}
+
+name = <span class="string"><span class="delimiter">&quot;</span><span class="content">josdem</span><span class="delimiter">&quot;</span></span>
+name.doSomething()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>What is happening here is to say, when someone invoke doSomething method in the String class that by the way does not exist, do this.</p>
+</div>
+<div class="paragraph">
+<p><a href="../groovy.html">Return to the main article</a></p>
 </div>
 <hr>
-
-<!-- TWITTER SHARE BUTTON -->
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="josdem" data-size="large" data-hashtags="Groovy">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<!-- GOOGLE PLUS SHARE BUTTON -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<div class="g-plus" data-action="share" data-height="28"></div>
-
+<div class="paragraph">
+<p>Footer</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
+Last updated 2015-05-12 16:48:49 CDT
 </div>
 </div>
 </body>
