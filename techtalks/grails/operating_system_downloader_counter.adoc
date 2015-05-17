@@ -238,6 +238,8 @@ class DownloaderService {
 }
 ----
 
+link:../grails.html[Return to the main article]
+
 '''
 
-footer
+Footer
