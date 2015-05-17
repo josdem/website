@@ -73,7 +73,7 @@ grails
 And then:
 
 ----
-create-scaffold-controller com.tim.DownloaderController
+create-controller com.tim.DownloaderController
 ----
 
 === Creating service
