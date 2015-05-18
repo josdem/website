@@ -101,6 +101,11 @@
   <loc>http://josdem.io/techtalks/groovy/metaprogramming.html</loc>
   <lastmod>2015-05-12T11:18:56+00:00</lastmod>
   <changefreq>daily</changefreq>
+  </url>
+<url>
+  <loc>http://josdem.io/techtalks/groovy/design_patterns.html</loc>
+  <lastmod>2015-05-18T11:18:56+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://josdem.io/techtalks/groovy/program_structure.html</loc>
