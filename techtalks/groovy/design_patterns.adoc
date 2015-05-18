@@ -177,3 +177,43 @@ def names = ["Joe", "Jane", "Jill"]
 println names.join(', ')
 ----
 
+== Delegation pattern
+
+Delegation is better than inheritance since minimize dependency. Let's see how Groovy manage delegation.
+
+[source,groovy]
+----
+class Worker {
+  def work(){ println "working..." }
+}
+
+class Expert {
+  def work() { println "expert working..." }
+  def analyze() { println "analyzing..." }
+}
+
+class Manager {
+  @Delegate Worker worker = new Worker()
+  @Delegate Expert expert = new Expert()
+}
+
+def manager = new Manager()
+manager.work()
+manager.analyze()
+----
+
+Output
+
+[source,groovy]
+----
+working...
+analyzing...
+----
+
+What happening here is Manager in compiling time add all Worker methods in to the Manager class and all methods from the Expert class but only those methods that are not included so far.
+
+link:../groovy.html[Return to the main article]
+
+'''
+
+Footer

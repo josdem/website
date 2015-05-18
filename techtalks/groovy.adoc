@@ -11,6 +11,7 @@ link:groovy/program_structure.html[Program Structure]
 link:groovy/looping_structures.html[Looping structures]
 link:groovy/closures.html[Closures]
 link:groovy/metaprogramming.html[Metaprogramming]
+link:groovy/design_patterns.html[Design Patterns]
 
 == Characteristics
 
