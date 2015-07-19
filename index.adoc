@@ -17,6 +17,7 @@ image:mixcloud-32px.png[alt="Mixcloud", link="https://www.mixcloud.com/josdem" a
 * Groovy: link:techtalks/groovy.html[Groovy]
 * Grails: link:techtalks/grails.html[Grails]
 * Refactoring: link:techtalks/refactoring.html[Refactoring]
+* Continuos Delivery: link:techtalks/continuos_delivery.html[Continuos Delivery]
 
 == Music
 

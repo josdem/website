@@ -2,6 +2,20 @@
 
 = Looping structures
 
+Value from a Map
+
+[source,groovy]
+----
+def map = [name: 'josdem', language: 'Groovy']
+
+assert 'josdem' == map.getAt('name')
+assert 'josdem' == map['name']
+assert 'Groovy' == map.language
+assert 'josdem' == map."name"
+assert 'josdem' == map.get('name')
+assert null == map.get('expression')  // Non-existing key in map.
+----
+
 Groovy supports the standard C for loop:
 
 [source,groovy]
