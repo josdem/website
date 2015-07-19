@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>Continuos Delivery</title>
+<title>Continuous Delivery</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Continuos Delivery</h1>
+<h1>Continuous Delivery</h1>
 </div>
 <div id="content">
 <div class="sect1">
@@ -437,10 +437,40 @@ So while it is important to deliver our software as quickly as possible, it is e
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_every_change_should_trigger_the_feedback_process">Every change should trigger the feedback process</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A working software application can be usefull decomposed into four components: excecutable code, configuration, host environment, and data. If any of them changes, it can lead to a change in the behaviour of the application. Therefore we need to keep all four fo these components under control and ensure that a change in any of them is verified.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The process of creating the executable code must work.</p>
+</li>
+<li>
+<p>The software&#8217;s unit test must pass.</p>
+</li>
+<li>
+<p>The software should fulfill certain quiality criteria such as test coverage and other technology-specific metrics.</p>
+</li>
+<li>
+<p>The software&#8217;s functional acceptance test must pass.</p>
+</li>
+<li>
+<p>The software&#8217;s nonfunctional test must pass.</p>
+</li>
+<li>
+<p>The software must go through exploratory testing and a demosntration to the customer and a selection of users.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-19 18:09:44 CDT
+Last updated 2015-07-19 18:33:59 CDT
 </div>
 </div>
 </body>
