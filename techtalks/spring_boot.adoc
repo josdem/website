@@ -1,0 +1,55 @@
+:source-highlighter: coderay
+
+= Spring Boot
+
+== What is Spring Boot?
+
+It is a Spring project aim to create easy web or stand-alone applications. It provides the next features:
+
+* No requirement for XML configuration
+* Tomcat or Jetty embedded
+* Very little Spring configuration
+
+You can create a starting project from command line like this:
+
+----
+spring init --dependencies=data-jpa,data-rest --build=gradle SimpleRestApplication
+----
+
+That command will generate a Spring project structure under SimpleRestApplication folder with a build.gradle file.
+
+----
+buildscript {
+  ext {
+    springBootVersion = '1.2.5.RELEASE'
+  }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+  baseName = 'demo'
+  version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile("org.springframework.boot:spring-boot-starter-data-jpa")
+  compile("org.springframework.boot:spring-boot-starter-data-rest")
+  testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+----
