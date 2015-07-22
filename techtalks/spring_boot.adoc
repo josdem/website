@@ -10,13 +10,20 @@ It is a Spring project aim to create easy web or stand-alone applications. It pr
 * Tomcat or Jetty embedded
 * Very little Spring configuration
 
-You can create a starting project from command line like this:
+This simple tutorial shows you how to create a simple Spring project with this features:
+
+* Groovy support
+* Gradle construction
+* Mysql databse support
+* Basic configuration
+
+You can create this project from command line like this:
 
 ----
 spring init --dependencies=data-jpa,data-rest --build=gradle SimpleRestApplication
 ----
 
-That command will generate a Spring project structure under SimpleRestApplication folder with a build.gradle file.
+That command will generate a Spring project structure under SimpleRestApplication folder, I will show you a short version of build.gradle generated.
 
 ----
 buildscript {
@@ -49,7 +56,72 @@ repositories {
 dependencies {
   compile("org.springframework.boot:spring-boot-starter-data-jpa")
   compile("org.springframework.boot:spring-boot-starter-data-rest")
+  compile('org.codehaus.groovy:groovy:2.4.3')
+  compile("mysql:mysql-connector-java:5.1.34")
   testCompile("org.springframework.boot:spring-boot-starter-test")
 }
+----
+
+This project will generate an DemoApplication.java file, rename it as DemoApplication.groovy in a package structure you want.
+
+[source, groovy]
+----
+package com.josdem
+
+import org.springframework.boot.SpringApplication
+import org.springframework.boot.autoconfigure.SpringBootApplication
+
+@SpringBootApplication
+class DemoApplication {
+
+  static void main(String[] args) {
+    SpringApplication.run(DemoApplication.class, args)
+  }
+}
+----
+
+Next create a groovy file with simple rest controller description as follow:
+
+[source, groovy]
+----
+package com.josdem
+
+import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestMapping
+
+@RestController
+class SimpleController {
+
+  @RequestMapping("/")
+  String index() {
+    "Greetings from Spring Boot!"
+  }
+
+}
+----
+
+Mysql configuration keeps url connection, username and password description in the application.properties file.
 
 ----
+spring.datasource.url=jdbc:mysql://localhost/springboot
+spring.datasource.username=josdem
+spring.datasource.password=josdem
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+
+spring.jpa.generate-ddl=true
+----
+
+Finally run it from command line.
+
+----
+gradle bootRun
+----
+
+'''
+
+footer
+
+
+
+
+

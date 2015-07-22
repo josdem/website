@@ -5,7 +5,28 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>Spring Boot</title>
+
+<title>josdem.io : Spring Boot</title>
+<link rel="icon" type="image/png" href="../jmetadata-16px.png"/>
+
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name="description" content="Basic information about Spring boot and how create a project">
+<meta name="author" content="josdem">
+<meta name="keywords" content="Spring,Spring Boot,josdem">
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../css/josdem.css" type="text/css">
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-25685398-3', 'auto');
+ga('send', 'pageview');
+</script>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -501,6 +522,19 @@ table.CodeRay td.code>pre{padding:0}
 </style>
 </head>
 <body class="article">
+
+<div itemscope itemtype ="http://schema.org/CreativeWork">
+  <div style="display:none">
+
+  <h1 itemprop="name">Spring Boot</h1>
+  <p itemprop="description">What is Spring Boot and how to create a simple project</p>
+            <span itemprop="dateCreated">2015-07-21</span>
+      <span itemprop="genre">Framework</span>
+      <span itemprop="educationalUse">Tech Talks</span>
+      <span itemprop="keywords">Spring, josdem, Frameworks, Spring Boot, Spring Boot get started</span>
+    </div>
+</div>
+
 <div id="header">
 <h1>Spring Boot</h1>
 </div>
@@ -525,7 +559,26 @@ table.CodeRay td.code>pre{padding:0}
 </ul>
 </div>
 <div class="paragraph">
-<p>You can create a starting project from command line like this:</p>
+<p>This simple tutorial shows you how to create a simple Spring project with this features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Groovy support</p>
+</li>
+<li>
+<p>Gradle construction</p>
+</li>
+<li>
+<p>Mysql databse support</p>
+</li>
+<li>
+<p>Basic configuration</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can create this project from command line like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -533,7 +586,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p>That command will generate a Spring project structure under SimpleRestApplication folder with a build.gradle file.</p>
+<p>That command will generate a Spring project structure under SimpleRestApplication folder, I will show you a short version of build.gradle generated.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -567,16 +620,88 @@ repositories {
 dependencies {
   compile("org.springframework.boot:spring-boot-starter-data-jpa")
   compile("org.springframework.boot:spring-boot-starter-data-rest")
+  compile('org.codehaus.groovy:groovy:2.4.3')
+  compile("mysql:mysql-connector-java:5.1.34")
   testCompile("org.springframework.boot:spring-boot-starter-test")
 }</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>This project will generate an DemoApplication.java file, rename it as DemoApplication.groovy in a package structure you want.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> com.josdem
+
+<span class="keyword">import</span> <span class="include">org.springframework.boot.SpringApplication</span>
+<span class="keyword">import</span> <span class="include">org.springframework.boot.autoconfigure.SpringBootApplication</span>
+
+<span class="annotation">@SpringBootApplication</span>
+<span class="type">class</span> <span class="class">DemoApplication</span> {
+
+  <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) {
+    SpringApplication.run(DemoApplication.class, args)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next create a groovy file with simple rest controller description as follow:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> com.josdem
+
+<span class="keyword">import</span> <span class="include">org.springframework.web.bind.annotation.RestController</span>
+<span class="keyword">import</span> <span class="include">org.springframework.web.bind.annotation.RequestMapping</span>
+
+<span class="annotation">@RestController</span>
+<span class="type">class</span> <span class="class">SimpleController</span> {
+
+  <span class="annotation">@RequestMapping</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span>)
+  <span class="predefined-type">String</span> index() {
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">Greetings from Spring Boot!</span><span class="delimiter">&quot;</span></span>
+  }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mysql configuration keeps url connection, username and password description in the application.properties file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>spring.datasource.url=jdbc:mysql://localhost/springboot
+spring.datasource.username=josdem
+spring.datasource.password=josdem
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+
+spring.jpa.generate-ddl=true</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally run it from command line.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>gradle bootRun</pre>
+</div>
+</div>
+<hr>
+
+<!-- TWITTER SHARE BUTTON -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="josdem" data-size="large" data-hashtags="SpringBoot">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!-- GOOGLE PLUS SHARE BUTTON -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<div class="g-plus" data-action="share" data-height="28"></div>
+
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-21 19:13:59 CDT
 </div>
 </div>
 </body>
