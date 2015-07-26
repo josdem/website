@@ -20,6 +20,7 @@ image:mixcloud-32px.png[alt="Mixcloud", link="https://www.mixcloud.com/josdem" a
 * Continuous Delivery: link:techtalks/continuous_delivery.html[Continuous Delivery]
 * Spring Boot: link:techtalks/spring_boot.html[Spring Boot]
 * Elixir: link:techtalks/elixir.html[Elixir]
+* Extreme Programming: link:techtalks/extreme_programming.html[Extreme Programming]
 
 == Music
 
