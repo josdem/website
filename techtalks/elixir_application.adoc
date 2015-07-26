@@ -58,5 +58,7 @@ $ mix escript.build
 $ ./greet
 ----
 
+link:elixir/elixir_application.html[Basic project in elixir]
+
 '''
 Footer
