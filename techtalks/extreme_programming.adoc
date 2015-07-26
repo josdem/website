@@ -1,6 +1,9 @@
 = Extreme Programming Explained
 
-XP is a style of software development focusing on excellent application of programming techniques, clear communication, and teamwork which allow us to accomplish things we previously could not even imagine. XP Includes:
+[cols="1,5", frame="none"]
+|===
+|image:../images/extreme_programming.jpg[Extreme Programming, link="http://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0321278658"]|XP is a style of software development focusing on excellent application of programming techniques, clear communication, and teamwork which allow us to accomplish things we previously could not even imagine. XP Includes:
+|===
 
 * A philosophy of software development based on the values of communication, feedback, simplicity, courage, and respect.
 * A body of practices proven useful in improving software development, The practices complement each other, amplifying their effects. The are chosen as expressions of the values.
