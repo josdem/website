@@ -1,3 +1,5 @@
+:source-highlighter: coderay
+
 = Elixir
 
 == Description
@@ -39,8 +41,16 @@ User switch command
 
 Then press h for menu and q for quit
 
-* Elixir data types are immutable. Elixir code is easier to reason about as you never need to worry if a particular code is mutating your data structure in place. By being immutable, Elixir also helps eliminate common cases where concurrent code has race conditions because two different entities are trying to change a data structure at the same time.
-* Lists are stored in memory as linked lists.
-* Tuples, are stored contiguously in memory. This means getting the tuple size or accessing an element by index is fast.
-* Mix command
+== Hello World
 
+[source, groovy]
+----
+$ cat simple.exs
+IO.puts "Hello world from Elixir!"
+
+$ elixir simple.exs
+Hello world from Elixir!
+----
+
+'''
+footer
