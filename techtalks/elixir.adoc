@@ -52,5 +52,7 @@ $ elixir simple.exs
 Hello world from Elixir!
 ----
 
+link:elixir/elixir_application.html[Basic project in elixir]
+
 '''
 footer
