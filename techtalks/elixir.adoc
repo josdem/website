@@ -53,6 +53,7 @@ Hello world from Elixir!
 ----
 
 link:elixir/elixir_application.html[Basic project in elixir]
+link:elixir/processes.html[Elixir and processes]
 
 '''
 footer
