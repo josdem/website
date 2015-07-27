@@ -21,6 +21,7 @@ image:mixcloud-32px.png[alt="Mixcloud", link="https://www.mixcloud.com/josdem" a
 * Spring Boot: link:techtalks/spring_boot.html[Spring Boot]
 * Elixir: link:techtalks/elixir.html[Elixir]
 * Extreme Programming: link:techtalks/extreme_programming.html[Extreme Programming]
+* Clean Code: link:techtalks/clean_code.html[Clean Code]
 
 == Music
 
