@@ -48,6 +48,7 @@ Mutual benefit is the most important XP principle.
 == Primary Practices
 
 Whole Team: People need a sense of "team":
+
 * We belong.
 * We are in this together.
 * We support each other's work, growth, and learning.
