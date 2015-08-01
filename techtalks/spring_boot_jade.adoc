@@ -1,3 +1,4 @@
+:source-highlighter: coderay
 = Spring Boot with Jade
 
 == Setup
@@ -106,3 +107,40 @@ java -jar spring-boot-jade-0.0.1-SNAPSHOT.jar
 ----
 
 At this point you have an application Spring Boot running in 8080 port.
+
+== Web flow setup
+
+Now it is time to create some controller to receive requests. Let's create a simple Controller in your package directory in my case is in $HOME_PROJECT/src/main/groovy/jade
+
+[source, groovy]
+----
+package jade
+
+import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
+
+@Controller
+class HomeController {
+
+  @RequestMapping('/')
+  @ResponseBody
+  def index() {
+    println 'Hello World!'
+  }
+
+}
+----
+
+In your project home, type:
+
+----
+gradle run
+----
+
+Now you are able to browse link:http://localhost:8080/[localhost] and should see a response from your HomeController in console
+
+----
+Hello World!
+----
+
