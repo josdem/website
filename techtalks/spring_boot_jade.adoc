@@ -1,0 +1,28 @@
+= Spring Boot with Jade
+
+We are going to create a basic project with Spring Boot and Jade. First we need to go to this site: link:http://start.spring.io/[Spring Initializr] and create a new project with next elements:
+
+* Type: Gradle Project
+* Java version: 1.8
+* Language: Groovy
+* Packaging: Jar
+
+Next download your project, and unzip it in some directory that you want. Browse that directory and you should see the following structure:
+
+----
+.
+│── build.gradle
+└── src
+   ├── main
+   │   ├── groovy
+   │   │   └── jade
+   │   │       └── JadeApplication.groovy
+   │   └── resources
+   │       ├── application.properties
+   │       ├── static
+   │       └── templates
+   └── test
+       └── groovy
+           └── jade
+               └── JadeApplicationTests.groovy
+----

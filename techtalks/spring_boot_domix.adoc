@@ -1,0 +1,39 @@
+= Spring Boot
+
+El código Java es más flexible que el XML, ver start.spring.io  Gradle, spring boot 1.3.0, Spring MVC, JPA, H2, Activator.
+Actuator es medir y contar lo que pasa en el contenedor de Spring.
+
+bootRepackage empaqueta las librerias para que Spring Boot las use.
+
+java -jar demo-0-0.1.jar
+
+Ver como se corre spring boot con un puerto en particular
+
+@SpringBootApplication
+
+Le pasa una clase que tiene la confiuracion y le pasa los commad line, lee @Configuration, @ComponentScan, @EnableAutoConfiguration
+
+@Controller
+HomeController
+@RequestMapping("/")
+@ResponseBody
+void index(){
+  println("hola")
+}
+
+ver el github de domix para ver jade para la vista, jade tiene los mixings
+
+JadeConfiguration
+@ConditionalOnMissingBean aplica configuracion si es que no esta definido un bean
+
+
+
+
+
+
+
+
+
+
+
+
