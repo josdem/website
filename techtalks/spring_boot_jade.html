@@ -695,10 +695,65 @@ task wrapper(type: Wrapper) {
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_jade_integration">Jade integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jade is a template language implemented with JavaScript. Jade is a clean, whitespace sensitive syntax for writing html, for more information go to: <a href="http://jade-lang.com/">Jade</a>
+To integrate Jade add this line to the build.gradle file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>compile("com.domingosuarez.boot:spring-boot-starter-jade4j:0.3.0")</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next create this file: $HOME_PROJECT/src/main/resources/templates/index.jade</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>html
+  head
+    title Simple Jade
+  body
+    h1 Home page
+    p Current time: #{currentTime}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally modify HomeController.groovy to render a Date() response as follow:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> jade
+
+<span class="keyword">import</span> <span class="include">org.springframework.stereotype.Controller</span>
+<span class="keyword">import</span> <span class="include">org.springframework.web.bind.annotation.RequestMapping</span>
+<span class="keyword">import</span> <span class="include">org.springframework.web.bind.annotation.ResponseBody</span>
+<span class="keyword">import</span> <span class="include">org.springframework.ui.Model</span>
+
+<span class="annotation">@Controller</span>
+<span class="type">class</span> <span class="class">HomeController</span> {
+
+  <span class="annotation">@RequestMapping</span>(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>)
+  <span class="predefined-type">String</span> index(Model model) {
+    model.addAttribute <span class="string"><span class="delimiter">'</span><span class="content">currentTime</span><span class="delimiter">'</span></span>, <span class="keyword">new</span> <span class="predefined-type">Date</span>()
+    <span class="string"><span class="delimiter">'</span><span class="content">index</span><span class="delimiter">'</span></span>
+  }
+
+}</code></pre>
+</div>
+</div>
+<hr>
+<div class="paragraph">
+<p>Footer</p>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-08-01 12:23:02 CDT
+Last updated 2015-08-03 18:43:35 CDT
 </div>
 </div>
 </body>

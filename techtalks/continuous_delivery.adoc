@@ -36,3 +36,10 @@ Perform an automatic build, test and deploy, and you should do as follow:
 It is essential that everybody involved in the process of delivering software is involved in the feedback process. That includes developers, testers, operations staff, infrastructure specialists, and managers. Being able to react to feedback also means broadcasting information. Using big and visible dashboards and other notification mechanisms.
 
 Finally, feedback is no good unless it is acted upon. This requires discipline and planning. When something needs doing, it is responsibility of the team decide on a course of action.
+
+== Configuration Management
+
+Refers to the process which all artifacts relevant to your project and the relationships between them are stored, retrieved, uniquely identified, and modified.
+
+If you have a good co
+
