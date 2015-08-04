@@ -35,7 +35,7 @@ Next download your project, and unzip it in some directory that you want. Browse
                └── JadeApplicationTests.groovy
 ----
 
-You should see your gradle file as follow:
+This is the build.gradle file generated:
 
 ----
 buildscript {
@@ -138,7 +138,7 @@ In your project home, type:
 gradle run
 ----
 
-Now you are able to browse link:http://localhost:8080/[localhost] and should see a response from your HomeController in console
+Now you are able to browse link:http://localhost:8080/[localhost] and see some response from your HomeController in console
 
 ----
 Hello World!
