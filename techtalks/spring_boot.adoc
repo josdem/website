@@ -117,6 +117,8 @@ Finally run it from command line.
 gradle bootRun
 ----
 
+link:spring_boot/spring_boot_jade.html[Spring Boot with Jade]
+
 '''
 
 footer
