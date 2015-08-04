@@ -145,7 +145,12 @@
   <loc>http://josdem.io/techtalks/spring_boot.html</loc>
   <lastmod>2015-07-21T16:18:56+00:00</lastmod>
   <changefreq>daily</changefreq>
-  </url>
+</url>
+<url>
+  <loc>http://josdem.io/techtalks/spring_boot/spring_boot_jade.html</loc>
+  <lastmod>2015-08-03T16:18:56+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
 <url>
   <loc>http://josdem.io/techtalks/elixir.html</loc>
   <lastmod>2015-07-25T16:18:56+00:00</lastmod>
